@@ -1,0 +1,40 @@
+# Local configuration and secrets
+.env
+.env.*
+!.env.example
+
+# Next.js and Node.js
+/node_modules/
+/.next/
+/out/
+*.tsbuildinfo
+
+# Runtime data
+*.log
+*.pid
+/storage/*
+/liongoldss/uploads/*
+!/liongoldss/uploads/.htaccess
+
+# Test and tooling output
+.phpunit.cache/
+.phpunit.result.cache
+coverage/
+
+# Editor and operating-system files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Local archives and database dumps
+*.bak
+*.tmp
+*.zip
+*.tar
+*.tar.gz
+*.sql.gz

@@ -1,0 +1,650 @@
+:root {
+    --public-ink: #17202a;
+    --public-muted: #5f6b76;
+    --public-border: #dce3e8;
+    --public-surface: #ffffff;
+    --public-soft: #f5f7f8;
+    --public-brand: #d92f20;
+    --public-brand-dark: #a91f14;
+    --public-accent: #f4b740;
+    --public-success: #176b45;
+    --public-danger: #a52a20;
+}
+
+*:focus-visible {
+    outline: 3px solid var(--public-accent) !important;
+    outline-offset: 3px !important;
+}
+
+.sr-only {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
+.skip-link {
+    position: fixed;
+    top: 12px;
+    left: 12px;
+    z-index: 10000;
+    padding: 10px 14px;
+    color: #fff;
+    background: var(--public-ink);
+    border-radius: 4px;
+    transform: translateY(-150%);
+}
+
+.skip-link:focus {
+    color: #fff;
+    transform: translateY(0);
+}
+
+/* Preserve the theme's header/hero overlap now that the page has a main landmark. */
+.header-topbar + main > .slider {
+    position: relative;
+    margin-top: -65px;
+}
+
+.form-label-public {
+    display: block;
+    margin-bottom: 8px;
+    color: inherit;
+    font-weight: 700;
+    text-transform: none;
+}
+
+.form-status {
+    display: none;
+    margin: 0 0 18px;
+    padding: 12px 14px;
+    border: 1px solid currentColor;
+    border-radius: 4px;
+    background: #fff;
+    font-weight: 600;
+}
+
+.form-status.is-visible {
+    display: block;
+}
+
+.form-status.is-success {
+    color: var(--public-success);
+}
+
+.form-status.is-error {
+    color: var(--public-danger);
+}
+
+.form-honeypot {
+    position: absolute !important;
+    left: -10000px !important;
+    width: 1px !important;
+    height: 1px !important;
+    overflow: hidden !important;
+}
+
+.track-form .form-control {
+    min-height: 58px;
+}
+
+.contactForm .form-control {
+    margin-bottom: 0;
+}
+
+.contactForm .form-group-public {
+    margin-bottom: 20px;
+}
+
+.service-feature {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 0;
+    color: inherit;
+}
+
+.service-feature .fas {
+    color: var(--public-brand);
+}
+
+.case-title h4 {
+    color: inherit;
+    font-size: inherit;
+    text-transform: capitalize;
+}
+
+.case-cat span {
+    display: inline-block;
+    margin-right: 8px;
+    color: inherit;
+    font-size: inherit;
+}
+
+.contact-details .info li > span:last-child {
+    display: inline;
+    color: inherit;
+}
+
+.contact-types .button:only-child {
+    flex-basis: 100%;
+    border-radius: 4px !important;
+}
+
+.slider .carousel-navs .owl-nav .owl-prev,
+.slider .carousel-navs .owl-nav .owl-next {
+    position: relative;
+    background-image: none !important;
+}
+
+.slider .carousel-navs .owl-nav .owl-prev::before,
+.slider .carousel-navs .owl-nav .owl-next::before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 18px;
+    height: 18px;
+    content: "";
+    border-top: 3px solid #fff;
+    border-left: 3px solid #fff;
+}
+
+.slider .carousel-navs .owl-nav .owl-prev::before {
+    transform: translate(-35%, -50%) rotate(-45deg);
+}
+
+.slider .carousel-navs .owl-nav .owl-next::before {
+    transform: translate(-65%, -50%) rotate(135deg);
+}
+
+/* Shipment result page */
+
+.tracking-page {
+    margin: 0;
+    min-height: 100vh;
+    color: var(--public-ink);
+    background: var(--public-soft);
+    font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 16px;
+    line-height: 1.55;
+}
+
+.tracking-page *,
+.tracking-page *::before,
+.tracking-page *::after {
+    box-sizing: border-box;
+}
+
+.tracking-page a {
+    color: var(--public-brand-dark);
+}
+
+.tracking-container {
+    width: min(1160px, calc(100% - 32px));
+    margin-inline: auto;
+}
+
+.tracking-header {
+    border-bottom: 1px solid var(--public-border);
+    background: var(--public-surface);
+}
+
+.tracking-header__inner {
+    display: flex;
+    min-height: 86px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.tracking-brand {
+    display: inline-flex;
+    align-items: center;
+}
+
+.tracking-brand img {
+    display: block;
+    width: auto;
+    max-width: 210px;
+    height: 48px;
+    object-fit: contain;
+}
+
+.tracking-header__link {
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.tracking-header__link:hover {
+    text-decoration: underline;
+}
+
+.tracking-main {
+    padding-block: 48px 64px;
+}
+
+.tracking-hero {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 32px;
+    margin-bottom: 28px;
+}
+
+.tracking-eyebrow {
+    margin: 0 0 6px;
+    color: var(--public-brand-dark);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.tracking-hero h1,
+.tracking-error h1 {
+    margin: 0;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    line-height: 1.08;
+    overflow-wrap: anywhere;
+}
+
+.tracking-lead {
+    margin: 12px 0 0;
+    color: var(--public-muted);
+    font-size: 1.08rem;
+}
+
+.tracking-status {
+    min-width: min(100%, 310px);
+    padding: 18px 22px;
+    color: #fff;
+    background: var(--public-brand-dark);
+    border-radius: 8px;
+}
+
+.tracking-status span,
+.tracking-status strong {
+    display: block;
+}
+
+.tracking-status span {
+    margin-bottom: 4px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    opacity: 0.85;
+    text-transform: uppercase;
+}
+
+.tracking-status strong {
+    font-size: 1.05rem;
+}
+
+.tracking-summary {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1px;
+    margin-bottom: 24px;
+    overflow: hidden;
+    border: 1px solid var(--public-border);
+    border-radius: 8px;
+    background: var(--public-border);
+}
+
+.tracking-summary__item {
+    margin: 0;
+    padding: 20px 22px;
+    background: var(--public-surface);
+}
+
+.tracking-summary dt,
+.details-list dt,
+.package-grid dt {
+    margin-bottom: 4px;
+    color: var(--public-muted);
+    font-size: 0.78rem;
+    font-weight: 750;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.tracking-summary dd,
+.details-list dd,
+.package-grid dd {
+    margin: 0;
+    overflow-wrap: anywhere;
+}
+
+.tracking-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.75fr) minmax(280px, 0.75fr);
+    gap: 24px;
+    align-items: start;
+}
+
+.tracking-layout__main {
+    display: grid;
+    gap: 24px;
+}
+
+.tracking-card {
+    margin-bottom: 24px;
+    padding: clamp(22px, 4vw, 34px);
+    border: 1px solid var(--public-border);
+    border-radius: 8px;
+    background: var(--public-surface);
+    box-shadow: 0 8px 24px rgba(23, 32, 42, 0.05);
+}
+
+.tracking-layout .tracking-card {
+    margin-bottom: 0;
+}
+
+.tracking-card--sticky {
+    position: sticky;
+    top: 20px;
+}
+
+.tracking-section-heading {
+    margin-bottom: 24px;
+}
+
+.tracking-section-heading h2,
+.tracking-again h2 {
+    margin: 0;
+    font-size: clamp(1.4rem, 3vw, 1.9rem);
+}
+
+.route-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.route-stop {
+    padding: 22px;
+    border: 1px solid var(--public-border);
+    border-radius: 8px;
+}
+
+.route-stop__label {
+    display: inline-block;
+    margin-bottom: 8px;
+    padding: 3px 9px;
+    color: #fff;
+    background: var(--public-brand-dark);
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.route-stop h3 {
+    margin: 0 0 18px;
+    font-size: 1.2rem;
+}
+
+.details-list {
+    display: grid;
+    gap: 14px;
+    margin: 0;
+}
+
+.package-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1px;
+    margin: 0;
+    border: 1px solid var(--public-border);
+    background: var(--public-border);
+}
+
+.package-grid > div {
+    min-width: 0;
+    padding: 18px;
+    background: var(--public-surface);
+}
+
+.shipment-description {
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid var(--public-border);
+}
+
+.shipment-description h3 {
+    margin: 0 0 8px;
+    font-size: 1.05rem;
+}
+
+.shipment-description p {
+    margin: 0;
+}
+
+.cargo-image {
+    margin: 24px 0 0;
+}
+
+.cargo-image img {
+    display: block;
+    width: 100%;
+    max-height: 440px;
+    object-fit: contain;
+    border: 1px solid var(--public-border);
+    border-radius: 8px;
+    background: var(--public-soft);
+}
+
+.cargo-image figcaption {
+    margin-top: 8px;
+    color: var(--public-muted);
+    font-size: 0.88rem;
+}
+
+.shipment-messages {
+    display: grid;
+    gap: 12px;
+}
+
+.shipment-message {
+    padding: 16px 18px;
+    border-left: 4px solid var(--public-brand);
+    background: var(--public-soft);
+}
+
+.shipment-message p {
+    margin: 0 0 6px;
+}
+
+.shipment-message time,
+.tracking-timeline time {
+    color: var(--public-muted);
+    font-size: 0.84rem;
+}
+
+.tracking-timeline {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.tracking-timeline__event {
+    position: relative;
+    padding: 0 0 28px 26px;
+    border-left: 2px solid var(--public-border);
+}
+
+.tracking-timeline__event:last-child {
+    padding-bottom: 0;
+    border-left-color: transparent;
+}
+
+.tracking-timeline__event::before {
+    position: absolute;
+    top: 2px;
+    left: -8px;
+    width: 14px;
+    height: 14px;
+    content: "";
+    border: 3px solid var(--public-surface);
+    border-radius: 50%;
+    background: #9ba6ae;
+    box-shadow: 0 0 0 1px var(--public-border);
+}
+
+.tracking-timeline__event.is-current::before {
+    background: var(--public-brand);
+}
+
+.tracking-timeline h3 {
+    margin: 0 0 4px;
+    font-size: 1rem;
+}
+
+.tracking-timeline p {
+    margin: 0 0 4px;
+    color: var(--public-muted);
+}
+
+.tracking-timeline .payment-notice {
+    margin-top: 10px;
+    padding: 8px 10px;
+    color: var(--public-danger);
+    border: 1px solid #e6b4af;
+    border-radius: 4px;
+    background: #fff5f4;
+    font-weight: 700;
+}
+
+.tracking-again {
+    display: grid;
+    grid-template-columns: minmax(0, 0.8fr) minmax(320px, 1.2fr);
+    gap: 32px;
+    align-items: end;
+    margin-top: 24px;
+}
+
+.tracking-again p {
+    margin: 8px 0 0;
+    color: var(--public-muted);
+}
+
+.tracking-again__form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+.tracking-again__form > div {
+    display: flex;
+}
+
+.tracking-again__form input {
+    min-width: 0;
+    flex: 1;
+    padding: 12px 14px;
+    border: 1px solid #9ba6ae;
+    border-radius: 5px 0 0 5px;
+    font: inherit;
+    text-transform: uppercase;
+}
+
+.tracking-again__form button,
+.tracking-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 18px;
+    color: #fff !important;
+    border: 1px solid var(--public-brand-dark);
+    border-radius: 0 5px 5px 0;
+    background: var(--public-brand-dark);
+    font: inherit;
+    font-weight: 750;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.tracking-button {
+    margin-top: 8px;
+    border-radius: 5px;
+}
+
+.tracking-again__form button:hover,
+.tracking-button:hover {
+    background: #7f180f;
+}
+
+.tracking-error {
+    max-width: 760px;
+    margin: 40px auto;
+    text-align: center;
+}
+
+.tracking-error p:not(.tracking-eyebrow) {
+    color: var(--public-muted);
+}
+
+.tracking-footer {
+    padding-block: 28px;
+    color: #fff;
+    background: var(--public-ink);
+}
+
+.tracking-footer p {
+    margin: 0;
+}
+
+@media (max-width: 860px) {
+    .tracking-layout,
+    .tracking-again {
+        grid-template-columns: 1fr;
+    }
+
+    .tracking-card--sticky {
+        position: static;
+    }
+}
+
+@media (max-width: 640px) {
+    .tracking-header__inner,
+    .tracking-hero {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .tracking-header__inner {
+        justify-content: center;
+        padding-block: 16px;
+    }
+
+    .tracking-main {
+        padding-block: 34px 48px;
+    }
+
+    .tracking-status {
+        width: 100%;
+    }
+
+    .tracking-summary,
+    .route-grid,
+    .package-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .tracking-again__form > div {
+        display: grid;
+        gap: 10px;
+    }
+
+    .tracking-again__form input,
+    .tracking-again__form button {
+        width: 100%;
+        border-radius: 5px;
+    }
+}
