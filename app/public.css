@@ -723,7 +723,7 @@
 .track-messages { margin-bottom: 24px; }
 .track-messages__list { display: grid; gap: 12px; }
 .track-messages__list article { position: relative; padding: 18px 20px 18px 23px; border-left: 3px solid var(--public-mint); background: var(--public-cream); }
-.track-messages__list p { margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; color: #35463f; font-size: .82rem; line-height: 1.66; }
+.track-messages__list p { margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; color: #8d342b; font-weight: 650; font-size: .82rem; line-height: 1.66; }
 .track-messages__list time { display: block; margin-top: 9px; color: #68756f; font-size: .62rem; }
 
 .track-layout { display: grid; grid-template-columns: minmax(0, 1.38fr) minmax(315px, .62fr); gap: 24px; align-items: start; }
@@ -787,7 +787,7 @@
 .track-timeline li.is-current h3 { font-size: 1.03rem; }
 .track-timeline li > div > p:not(.track-payment-notice) { display: flex; align-items: center; gap: 4px; margin: 6px 0; color: #66736d; font-size: .67rem; }
 .track-timeline time { color: #68756f; font-size: .6rem; }
-.track-payment-notice { display: flex; align-items: flex-start; gap: 5px; margin: 10px 0 0; padding: 8px 9px; background: #fff0d5; color: #845515; font-size: .63rem; font-weight: 750; line-height: 1.45; }
+.track-payment-notice { display: flex; align-items: flex-start; gap: 5px; margin: 10px 0 0; padding: 8px 9px; background: #f8e5e1; color: #8d342b; font-size: .63rem; font-weight: 750; line-height: 1.45; }
 .track-payment-notice svg { flex: 0 0 auto; }
 .track-timeline__empty { display: grid; place-items: center; gap: 13px; padding: 24px 10px; color: #68756f; text-align: center; }
 .track-timeline__empty p { max-width: 240px; margin: 0; font-size: .73rem; line-height: 1.6; }
