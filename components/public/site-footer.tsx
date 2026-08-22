@@ -21,7 +21,7 @@ export function SiteFooter() {
         </nav>
         <div className="public-footer__links">
           <p>Contact</p>
-          <a href="mailto:info@liongoldss.com"><Mail aria-hidden="true" size={15} /> info@liongoldss.com</a>
+          <a href="mailto:info@linxshiplogis.com"><Mail aria-hidden="true" size={15} /> info@linxshiplogis.com</a>
           <span><MapPin aria-hidden="true" size={15} /> New York, NY 11226<br />United States</span>
         </div>
         <Link className="public-footer__cta" href="/#contact">

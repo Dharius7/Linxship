@@ -57,7 +57,7 @@ const organizationJsonLd = {
   image: new URL("/og.png", baseUrl).toString(),
   description,
   slogan: "Cargo moves. Confidence stays.",
-  email: "info@liongoldss.com",
+  email: "info@linxshiplogis.com",
   address: {
     "@type": "PostalAddress",
     addressLocality: "New York",

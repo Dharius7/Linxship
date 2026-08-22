@@ -305,7 +305,7 @@ export default function HomePage() {
             <h2>What are we<br />moving next?</h2>
             <p>Tell us what you need and our team will help shape the route, timing, and service around your cargo.</p>
             <div className="home-contact__details">
-              <a href="mailto:info@liongoldss.com"><span>Email us</span><strong>info@liongoldss.com</strong></a>
+              <a href="mailto:info@linxshiplogis.com"><span>Email us</span><strong>info@linxshiplogis.com</strong></a>
               <div><span>Opening hours</span><strong>Mon–Fri, 10:00–18:00</strong><small>Saturday, 10:00–14:00</small></div>
               <div><span>Location</span><strong>New York, NY 11226</strong><small>United States</small></div>
             </div>

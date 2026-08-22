@@ -35,7 +35,7 @@ export async function submitContactMessage(
 
   const supabase = createServiceClient();
   if (!supabase) {
-    return { status: "error", message: "Our contact service is temporarily unavailable. Please email info@liongoldss.com.", values };
+    return { status: "error", message: "Our contact service is temporarily unavailable. Please email info@linxshiplogis.com.", values };
   }
 
   try {
@@ -54,6 +54,6 @@ export async function submitContactMessage(
     return { status: "success", message: "Thank you — your message is on its way to our team." };
   } catch (error) {
     console.error("Contact service unavailable:", error instanceof Error ? error.message : "Unknown error");
-    return { status: "error", message: "Our contact service is temporarily unavailable. Please email info@liongoldss.com.", values };
+    return { status: "error", message: "Our contact service is temporarily unavailable. Please email info@linxshiplogis.com.", values };
   }
 }
