@@ -720,15 +720,15 @@
 .track-section-heading .public-eyebrow { margin-bottom: 5px; font-size: .59rem; }
 .track-section-heading h2 { margin: 0; font-family: var(--font-display), sans-serif; font-size: 1.48rem; line-height: 1.15; letter-spacing: -.045em; }
 
-.track-messages { padding: clamp(18px, 3vw, 26px); margin-bottom: 24px; }
-.track-messages .track-section-heading { gap: 12px; padding-bottom: 12px; margin-bottom: 14px; }
-.track-messages .track-section-heading__icon { width: 36px; height: 36px; flex: 0 0 36px; }
-.track-messages .track-section-heading__icon svg { width: 17px; }
+.track-messages { padding: clamp(14px, 2vw, 20px); margin-bottom: 18px; }
+.track-messages .track-section-heading { gap: 10px; padding-bottom: 8px; margin-bottom: 10px; }
+.track-messages .track-section-heading__icon { width: 28px; height: 28px; flex: 0 0 28px; }
+.track-messages .track-section-heading__icon svg { width: 14px; }
 .track-messages .public-eyebrow { margin: 0; }
-.track-messages__list { display: grid; gap: 8px; }
-.track-messages__list article { position: relative; padding: 12px 16px 12px 18px; border-left: 3px solid var(--public-mint); background: var(--public-cream); }
-.track-messages__list p { margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; color: #8d342b; font-weight: 650; font-size: .82rem; line-height: 1.5; }
-.track-messages__list time { display: block; margin-top: 6px; color: #68756f; font-size: .62rem; }
+.track-messages__list { display: grid; gap: 6px; }
+.track-messages__list article { position: relative; padding: 9px 14px 9px 16px; border-left: 3px solid var(--public-mint); background: var(--public-cream); }
+.track-messages__list p { margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; color: #8d342b; font-weight: 650; font-size: .9rem; line-height: 1.42; }
+.track-messages__list time { display: block; margin-top: 5px; color: #68756f; font-size: .62rem; }
 
 .track-layout { display: grid; grid-template-columns: minmax(0, 1.38fr) minmax(315px, .62fr); gap: 24px; align-items: start; }
 .track-layout__main { display: grid; gap: 24px; min-width: 0; }
@@ -873,7 +873,7 @@
   .track-summary > div:nth-child(2) { border-right: 0; }
   .track-summary > div:nth-child(-n + 2) { border-bottom: 1px solid var(--public-line); }
   .track-summary { margin-bottom: 16px; }
-  .track-messages { margin-bottom: 16px; }
+  .track-messages { margin-bottom: 14px; }
   .track-layout { grid-template-columns: 1fr; gap: 16px; }
   .track-layout__main { gap: 16px; }
   .track-layout__aside { order: -1; }
@@ -937,7 +937,7 @@
   .track-summary dt { font-size: 0.66rem; }
   .track-summary dd { font-size: 0.88rem; }
   .track-section-heading h2 { font-size: 1.32rem; }
-  .track-messages__list p { font-size: 0.92rem; }
+  .track-messages__list p { font-size: 1rem; }
   .track-route h3 { font-size: 1.28rem; }
   .track-route dt { font-size: 0.66rem; }
   .track-route dd { font-size: 0.9rem; }
