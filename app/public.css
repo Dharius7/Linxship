@@ -929,10 +929,14 @@
   .contact-form__row { grid-template-columns: 1fr; gap: 0; }
   .contact-form__footer { align-items: stretch; flex-direction: column; }
   .contact-form__submit { width: 100%; }
-  .public-footer__top { grid-template-columns: 1fr 1fr; }
-  .public-footer__brand { grid-column: 1 / -1; }
-  .public-footer__cta { width: max-content; max-width: 100%; }
-  .public-footer__bottom { align-items: flex-start; flex-direction: column; justify-content: center; }
+  .public-footer__top { grid-template-columns: 1fr 1fr; justify-items: center; text-align: center; }
+  .public-footer__brand { grid-column: 1 / -1; display: flex; flex-direction: column; align-items: center; }
+  .public-footer__brand > p { text-align: center; }
+  .public-footer__links { justify-items: center; }
+  .public-footer__links a,
+  .public-footer__links span { justify-content: center; }
+  .public-footer__cta { grid-column: 1 / -1; width: max-content; max-width: 100%; }
+  .public-footer__bottom { align-items: center; flex-direction: column; justify-content: center; text-align: center; }
   .track-main { padding-top: 28px; }
   .track-result-hero { min-height: 0; padding: 22px 18px; }
   .track-result-hero .public-eyebrow { margin-bottom: 9px; }
@@ -990,8 +994,7 @@
   .home-about__badge svg { width: 20px; margin-bottom: 6px; }
   .home-contact__form-heading { align-items: flex-start; flex-direction: column; gap: 7px; }
   .testimonial-card { padding: 26px 22px; }
-  .public-footer__top { grid-template-columns: 1fr; }
-  .public-footer__brand { grid-column: auto; }
+  .public-footer__top { gap: 30px 20px; }
   .public-footer__cta { width: 100%; justify-self: stretch; }
   .tracking-form__field { grid-template-columns: auto 1fr; padding-right: 5px; }
   .tracking-form__field button { grid-column: 1 / -1; width: 100%; }
