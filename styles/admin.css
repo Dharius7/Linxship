@@ -306,7 +306,7 @@
 .invoice-head__meta h1 { margin:0; max-width:100%; overflow-wrap:anywhere; font-family:ui-monospace,monospace; font-size:1.5rem; letter-spacing:-.01em; }
 .invoice-head__facts { display:flex; align-items:center; gap:10px; color:var(--admin-muted); font-size:.68rem; font-weight:700; }
 
-.invoice-parties { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin-bottom:24px; }
+.invoice-parties { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; margin-bottom:24px; }
 .invoice-party { min-width:0; padding:18px 20px; border:1px solid var(--admin-line); border-left:3px solid var(--admin-green); background:#f8faf7; }
 .invoice-party--to { border-left-color:var(--admin-green-2); }
 .invoice-party__label { display:block; margin-bottom:8px; color:var(--admin-green-2); text-transform:uppercase; letter-spacing:.12em; font-size:.6rem; font-weight:850; }
@@ -314,7 +314,7 @@
 .invoice-party p { margin:3px 0; max-width:100%; overflow-wrap:anywhere; color:#3f4b45; white-space:pre-line; font-size:.76rem; line-height:1.6; }
 .invoice-party__contact { color:var(--admin-ink); font-weight:650; }
 
-.invoice-route { display:grid; grid-template-columns:1fr 52px 1fr; align-items:center; gap:16px; margin-bottom:24px; padding:22px 26px; background:var(--admin-green); color:#fff; }
+.invoice-route { display:grid; grid-template-columns:minmax(0,1fr) 40px minmax(0,1fr); align-items:center; gap:16px; margin-bottom:24px; padding:22px 26px; background:var(--admin-green); color:#fff; }
 .invoice-route > div { min-width:0; display:grid; gap:4px; }
 .invoice-route > div:last-child { text-align:right; }
 .invoice-route small { color:rgba(255,255,255,.8); text-transform:uppercase; letter-spacing:.1em; font-size:.58rem; font-weight:800; }
@@ -427,7 +427,7 @@
   .admin-event-row { grid-template-columns:1fr; gap:6px; }.admin-event-time { text-align:left; display:flex; gap:7px; }.admin-event-line { display:none; }.admin-event-row .admin-row-actions { grid-column:auto; }
   .admin-status-list article { grid-template-columns:35px minmax(0,1fr); }.admin-terminal-pill { grid-column:2; grid-row:auto; }.admin-status-list article form { grid-column:2; }
   .admin-contact-list article { grid-template-columns:34px minmax(0,1fr); }.admin-contact-actions .admin-button { min-width:0; }
-  .admin-invoice { margin:0 -5px; width:calc(100% + 10px); padding:24px 15px; }.invoice-parties { grid-template-columns:1fr; }.invoice-route { grid-template-columns:1fr; text-align:left; }.invoice-route > div:last-child { text-align:left; }.invoice-route__arrow { margin:0; transform:rotate(90deg); }.invoice-panel dl div { grid-template-columns:100px 1fr; }.invoice-history { overflow-x:auto; }
+  .admin-invoice { margin:0 -5px; width:calc(100% + 10px); padding:24px 15px; }.invoice-parties { gap:10px; }.invoice-party { padding:14px 15px; }.invoice-route { gap:8px; padding:18px 14px; }.invoice-panel dl div { grid-template-columns:100px 1fr; }.invoice-history { overflow-x:auto; }
   .admin-dialog-backdrop { align-items:end; padding:0; }.admin-dialog { width:100%; padding:27px 20px calc(24px + env(safe-area-inset-bottom)); border-radius:18px 18px 0 0; }.admin-dialog-actions { display:grid; grid-template-columns:1fr 1fr; }
 }
 
