@@ -217,7 +217,7 @@ function ShipmentDetails({ result, cargoImageUrl }: { result: PublicTrackingResu
         <section className="track-panel track-messages" aria-labelledby="shipment-messages-title">
           <div className="track-section-heading">
             <div className="track-section-heading__icon"><Info aria-hidden="true" /></div>
-            <div><p className="public-eyebrow">Updates from our team</p><h2 id="shipment-messages-title">Shipment messages</h2></div>
+            <div><p className="public-eyebrow" id="shipment-messages-title">Updates from our team</p></div>
           </div>
           <div className="track-messages__list">
             {messages.map((message) => (
