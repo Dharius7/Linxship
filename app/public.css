@@ -878,8 +878,10 @@
   .track-summary { margin-bottom: 16px; }
   .track-messages { margin-bottom: 14px; }
   .track-layout { grid-template-columns: 1fr; gap: 16px; }
-  .track-layout__main { gap: 16px; }
-  .track-layout__aside { order: -1; }
+  .track-layout__main { display: contents; }
+  .track-layout [aria-labelledby="route-title"] { order: 1; }
+  .track-layout__aside { order: 2; }
+  .track-layout [aria-labelledby="package-title"] { order: 3; }
   .track-timeline-panel { position: static; }
   .track-again { grid-template-columns: 1fr; margin-top: 16px; }
   .track-loading-summary { grid-template-columns: repeat(2, 1fr); }
