@@ -746,8 +746,6 @@
 .track-route dt svg { width: 12px; height: 12px; }
 .track-route dd { margin: 0; overflow-wrap: anywhere; font-size: .75rem; font-weight: 700; }
 .track-address { white-space: pre-wrap; font-weight: 650; line-height: 1.55; }
-.track-route > article:last-child .track-route__marker { justify-content: flex-end; }
-.track-route > article:last-child h3 { text-align: right; }
 .track-route__line { height: 20px; display: flex; align-items: center; margin-top: 3px; color: var(--public-forest-mid); }
 .track-route__line::before,
 .track-route__line span { content: ""; flex: 1; border-top: 1px dashed #9ba6a1; }
