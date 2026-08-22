@@ -942,13 +942,17 @@
   .track-summary svg { width: 18px; height: 18px; }
   .track-summary dt { margin-bottom: 2px; font-size: 0.66rem; }
   .track-summary dd { font-size: 0.88rem; }
+  .track-section-heading { gap: 12px; padding-bottom: 14px; margin-bottom: 16px; }
+  .track-section-heading__icon { width: 36px; height: 36px; flex-basis: 36px; }
+  .track-section-heading__icon svg { width: 17px; }
   .track-section-heading h2 { font-size: 1.32rem; }
   .track-messages .public-eyebrow { font-size: .88rem; }
   .track-messages__list p { font-size: 0.92rem; }
   .track-route h3 { font-size: 1.28rem; }
   .track-route dt { font-size: 0.66rem; }
   .track-route dd { font-size: 0.9rem; }
-  .track-package-grid dt { font-size: 0.66rem; }
+  .track-package-grid > div { padding: 12px; }
+  .track-package-grid dt { margin-bottom: 4px; font-size: 0.66rem; }
   .track-package-grid dd { font-size: 0.9rem; }
   .track-billing dt { font-size: 0.64rem; }
   .track-billing dd { font-size: 0.88rem; }
@@ -1002,9 +1006,12 @@
   .track-state { padding: 28px 16px; }
   .track-result-hero { padding: 18px 14px; }
   .track-status { min-width: 0; padding: 13px 14px; }
-  .track-panel { padding: 22px 16px; }
-  .track-section-heading { align-items: flex-start; }
-  .track-section-heading__icon { width: 41px; height: 41px; flex-basis: 41px; }
+  .track-panel { padding: 18px 14px; }
+  .track-section-heading { align-items: flex-start; padding-bottom: 12px; margin-bottom: 14px; }
+  .track-section-heading__icon { width: 32px; height: 32px; flex-basis: 32px; }
+  .track-section-heading__icon svg { width: 15px; }
+  .track-package-grid > div { padding: 10px; }
+  .track-package-grid dt { margin-bottom: 3px; }
   .track-again { padding: 26px 16px; }
   .track-loading-summary { grid-template-columns: 1fr; }
 }
