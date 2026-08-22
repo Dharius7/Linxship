@@ -23,6 +23,8 @@ export const metadata: Metadata = {
   title: { default: title, template: "%s | LinxShip" },
   description,
   applicationName: "LinxShip",
+  keywords: ["LinxShip", "LinxShip Logistics", "LinxShip Logistics & Storage", "freight shipping", "cargo tracking", "secure storage"],
+  alternates: { canonical: "/" },
   icons: { icon: "/favicon.png", apple: "/favicon.png" },
   openGraph: {
     type: "website",
@@ -45,10 +47,36 @@ export const viewport: Viewport = {
   themeColor: "#10231c",
 };
 
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "LinxShip Logistics & Storage",
+  alternateName: ["LinxShip", "LinxShip Logistics"],
+  url: baseUrl.toString(),
+  logo: new URL("/images/Logonew.png", baseUrl).toString(),
+  image: new URL("/og.png", baseUrl).toString(),
+  description,
+  slogan: "Cargo moves. Confidence stays.",
+  email: "info@liongoldss.com",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "New York",
+    addressRegion: "NY",
+    postalCode: "11226",
+    addressCountry: "US",
+  },
+};
+
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
+        {children}
+      </body>
     </html>
   );
 }
