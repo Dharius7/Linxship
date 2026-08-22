@@ -20,7 +20,6 @@ import {
   Phone,
   Route,
   Scale,
-  ShieldCheck,
   Truck,
   UserRound,
 } from "lucide-react";
@@ -117,7 +116,7 @@ export async function generateMetadata({ searchParams }: TrackPageProps): Promis
   const params = await searchParams;
   const number = normaliseTrackingNumber(params.number);
   let title = "Track a shipment";
-  let description = "Enter a Lion Gold tracking number to view the latest shipment updates.";
+  let description = "Enter a LinxShip tracking number to view the latest shipment updates.";
 
   if (trackingPattern.test(number)) {
     const lookup = await getTrackingResult(number);
@@ -246,7 +245,7 @@ function ShipmentDetails({ result, cargoImageUrl }: { result: PublicTrackingResu
                   <div><dt><UserRound aria-hidden="true" /> Sender</dt><dd>{shipment.sender_name}</dd></div>
                   {senderPhone && <div><dt><Phone aria-hidden="true" /> Phone</dt><dd>{senderPhone}</dd></div>}
                   {senderEmail && <div><dt><Mail aria-hidden="true" /> Email</dt><dd>{senderEmail}</dd></div>}
-                  <div><dt><ShieldCheck aria-hidden="true" /> Address</dt><dd>Protected for privacy</dd></div>
+                  <div><dt><MapPin aria-hidden="true" /> Address</dt><dd className="track-address">{shipment.sender_address}</dd></div>
                 </dl>
               </article>
               <div className="track-route__line" aria-hidden="true"><Truck /><span /></div>
@@ -257,11 +256,10 @@ function ShipmentDetails({ result, cargoImageUrl }: { result: PublicTrackingResu
                   <div><dt><UserRound aria-hidden="true" /> Recipient</dt><dd>{shipment.recipient_name}</dd></div>
                   {recipientPhone && <div><dt><Phone aria-hidden="true" /> Phone</dt><dd>{recipientPhone}</dd></div>}
                   {recipientEmail && <div><dt><Mail aria-hidden="true" /> Email</dt><dd>{recipientEmail}</dd></div>}
-                  <div><dt><ShieldCheck aria-hidden="true" /> Address</dt><dd>Protected for privacy</dd></div>
+                  <div><dt><MapPin aria-hidden="true" /> Address</dt><dd className="track-address">{shipment.recipient_address}</dd></div>
                 </dl>
               </article>
             </div>
-            <p className="track-privacy-note"><ShieldCheck aria-hidden="true" size={15} /> Personal details are masked on this public tracking page.</p>
           </section>
 
           <section className="track-panel" aria-labelledby="package-title">

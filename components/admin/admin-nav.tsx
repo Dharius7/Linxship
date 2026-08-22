@@ -1,10 +1,10 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { logoutAction } from "@/lib/actions/admin";
+import { BrandLogo } from "@/components/brand-logo";
 import { AdminIcon, type AdminIconName } from "./icons";
 
 const links: Array<{ href: string; label: string; icon: AdminIconName }> = [
@@ -78,8 +78,8 @@ export function AdminNav({ displayName, email }: { displayName: string; email: s
   return (
     <>
       <header className="admin-mobile-header">
-        <Link href="/admin" className="admin-mobile-brand" aria-label="Lion Gold admin dashboard">
-          <Image src="/images/logo-dark.png" alt="Lion Gold" width={289} height={96} />
+        <Link href="/admin" className="admin-mobile-brand" aria-label="LinxShip admin dashboard">
+          <BrandLogo />
         </Link>
         <button
           ref={menuButtonRef}
@@ -105,9 +105,8 @@ export function AdminNav({ displayName, email }: { displayName: string; email: s
         inert={mobile && !open ? true : undefined}
       >
         <div className="admin-sidebar-inner">
-          <Link href="/admin" className="admin-brand" onClick={() => setOpen(false)}>
-            <span className="admin-brand-mark"><AdminIcon name="box" /></span>
-            <span><strong>Lion Gold</strong><small>Operations desk</small></span>
+          <Link href="/admin" className="admin-brand" onClick={() => setOpen(false)} aria-label="LinxShip operations desk">
+            <BrandLogo />
           </Link>
           <nav className="admin-nav" aria-label="Admin navigation">
             <span className="admin-nav-label">Workspace</span>

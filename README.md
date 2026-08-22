@@ -1,6 +1,6 @@
-# Lion Gold Shipping & Storage
+# LinxShip Logistics & Storage
 
-A complete Next.js 16 and Supabase rebuild of the Lion Gold public freight site and administration console. The application includes responsive shipment tracking, private cargo images, customer enquiries, Supabase Auth, shipment/event/message management, invoices, an activity log, metadata, and legacy URL redirects.
+A complete Next.js 16 and Supabase rebuild of the LinxShip public freight site and administration console. The application includes responsive shipment tracking, private cargo images, customer enquiries, Supabase Auth, shipment/event/message management, invoices, an activity log, metadata, and legacy URL redirects.
 
 The original PHP application is preserved in `legacy-php/` for reference. It is not imported or served by the Next.js application.
 

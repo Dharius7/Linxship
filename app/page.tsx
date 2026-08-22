@@ -227,9 +227,9 @@ export default function HomePage() {
           </div>
 
           <div className="home-about__copy">
-            <p className="public-eyebrow">The Lion Gold approach</p>
+            <p className="public-eyebrow">The LinxShip approach</p>
             <h2>Complex logistics.<br />Calm coordination.</h2>
-            <p className="home-about__lead">Lion Gold Shipping &amp; Storage provides practical transportation, customs support, and warehousing for cargo moving around the world.</p>
+            <p className="home-about__lead">LinxShip Logistics &amp; Storage provides practical transportation, customs support, and warehousing for cargo moving around the world.</p>
             <p>Our work is built on thoughtful planning, transparent communication, and a team that stays accountable from the first conversation to the final handoff.</p>
             <div className="home-about__checks">
               <span><CheckCircle2 aria-hidden="true" /> One point of coordination</span>

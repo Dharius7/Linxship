@@ -1,4 +1,4 @@
--- Lion Gold Shipping / Linxship Supabase foundation
+-- LinxShip Logistics & Storage Supabase foundation
 -- PostgreSQL 15+ / Supabase
 --
 -- Public visitors never receive table privileges. Tracking and contact submission
@@ -754,13 +754,13 @@ begin
   return jsonb_build_object(
     'shipment', jsonb_build_object(
       'tracking_number', tracked_shipment.tracking_number,
-      'sender_name', private.mask_person_name(tracked_shipment.sender_name),
+      'sender_name', tracked_shipment.sender_name,
       'sender_phone', null,
-      'sender_address', null,
+      'sender_address', tracked_shipment.sender_address,
       'sender_email', null,
-      'recipient_name', private.mask_person_name(tracked_shipment.recipient_name),
+      'recipient_name', tracked_shipment.recipient_name,
       'recipient_phone', null,
-      'recipient_address', null,
+      'recipient_address', tracked_shipment.recipient_address,
       'recipient_email', null,
       'payment_status', case
         when tracked_shipment.show_billing then tracked_shipment.payment_status
@@ -809,7 +809,7 @@ end;
 $$;
 
 comment on function public.track_shipment(text) is
-  'Returns one deliberately curated shipment timeline for an exact bearer tracking number.';
+  'Returns one curated shipment timeline, including sender and recipient name and address.';
 
 revoke all on function public.track_shipment(text) from public;
 revoke execute on function public.track_shipment(text) from anon, authenticated;

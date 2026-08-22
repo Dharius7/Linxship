@@ -1,5 +1,5 @@
-import Image from "next/image";
 import Link from "next/link";
+import { BrandLogo } from "@/components/brand-logo";
 import { redirect } from "next/navigation";
 import { LoginForm } from "@/components/admin/login-form";
 import { AdminIcon } from "@/components/admin/icons";
@@ -27,7 +27,7 @@ export default async function AdminLoginPage() {
     <main className="admin-login-shell">
       <section className="admin-login-story">
         <div className="admin-login-story-inner">
-          <Link href="/" className="admin-login-logo"><Image src="/images/logo-dark.png" alt="Lion Gold Shipping" width={289} height={96} /></Link>
+          <Link href="/" className="admin-login-logo" aria-label="LinxShip home"><BrandLogo priority /></Link>
           <div className="admin-login-copy">
             <span className="admin-login-kicker">Operations command centre</span>
             <h1>Every shipment.<br />One clear view.</h1>
@@ -38,7 +38,7 @@ export default async function AdminLoginPage() {
               <span><AdminIcon name="check" />Complete activity history</span>
             </div>
           </div>
-          <small>© {new Date().getFullYear()} Lion Gold Shipping & Storage</small>
+          <small>© {new Date().getFullYear()} LinxShip Logistics & Storage</small>
         </div>
       </section>
       <section className="admin-login-panel">

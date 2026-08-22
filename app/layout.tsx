@@ -15,21 +15,21 @@ function siteUrl(): URL {
 }
 
 const baseUrl = siteUrl();
-const title = "Lion Gold Shipping & Storage";
+const title = "LinxShip Logistics & Storage";
 const description = "Worldwide freight, secure storage, and clear shipment tracking from pickup to delivery.";
 
 export const metadata: Metadata = {
   metadataBase: baseUrl,
-  title: { default: title, template: "%s | Lion Gold Shipping" },
+  title: { default: title, template: "%s | LinxShip" },
   description,
-  applicationName: "Lion Gold Shipping",
+  applicationName: "LinxShip",
   icons: { icon: "/favicon.png", apple: "/favicon.png" },
   openGraph: {
     type: "website",
-    siteName: "Lion Gold Shipping",
+    siteName: "LinxShip",
     title,
     description,
-    images: [{ url: "/og.png", width: 1200, height: 630, alt: "Lion Gold — Cargo moves. Confidence stays." }],
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "LinxShip — Cargo moves. Confidence stays." }],
   },
   twitter: {
     card: "summary_large_image",

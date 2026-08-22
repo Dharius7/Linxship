@@ -1,9 +1,9 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, Menu, PackageSearch, X } from "lucide-react";
 import { useEffect, useState } from "react";
+import { BrandLogo } from "@/components/brand-logo";
 
 const navigation = [
   { href: "/#services", label: "Services" },
@@ -43,13 +43,8 @@ export function SiteHeader({ tone = "light" }: { tone?: "light" | "dark" }) {
   return (
     <header className={`public-header public-header--${tone}`}>
       <div className="public-shell public-header__inner">
-        <Link className="public-brand" href="/" onClick={closeMenu} aria-label="Lion Gold Shipping home">
-          <Image
-            src="/images/logo-dark.png"
-            alt="Lion Gold Shipping and Storage"
-            width={289}
-            height={96}
-          />
+        <Link className="public-brand" href="/" onClick={closeMenu} aria-label="LinxShip home">
+          <BrandLogo priority />
         </Link>
 
         <nav className="public-nav" aria-label="Primary navigation">

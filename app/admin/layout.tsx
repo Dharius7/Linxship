@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "@/styles/admin.css";
 
 export const metadata: Metadata = {
-  title: { default: "Operations", template: "%s | Lion Gold Admin" },
-  description: "Secure shipment operations dashboard for Lion Gold Shipping.",
+  title: { default: "Operations", template: "%s | LinxShip Admin" },
+  description: "Secure shipment operations dashboard for LinxShip.",
   robots: { index: false, follow: false },
 };
 

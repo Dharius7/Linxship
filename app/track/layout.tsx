@@ -3,7 +3,7 @@ import "../public.css";
 
 export const metadata: Metadata = {
   title: "Track a shipment",
-  description: "View the latest route and status information for your Lion Gold shipment.",
+  description: "View the latest route and status information for your LinxShip shipment.",
   robots: { index: false, follow: false, nocache: true },
 };
 

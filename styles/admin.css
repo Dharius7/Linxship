@@ -28,8 +28,8 @@
 .admin-login-story::before { content: ""; position: absolute; inset: 0; opacity: .3; background: radial-gradient(circle at 78% 10%, rgba(201,241,111,.55), transparent 28%), linear-gradient(140deg, transparent 58%, rgba(201,241,111,.09)); }
 .admin-login-story::after { content: ""; position: absolute; right: -120px; bottom: -110px; width: 500px; height: 500px; border: 1px solid rgba(255,255,255,.1); border-radius: 50%; box-shadow: 0 0 0 70px rgba(255,255,255,.025), 0 0 0 140px rgba(255,255,255,.02); }
 .admin-login-story-inner { position: relative; z-index: 1; min-height: 100%; padding: clamp(34px, 5vw, 72px); display: flex; flex-direction: column; }
-.admin-login-logo { width: max-content; padding: 10px 14px; background: #fff; border-radius: 5px; box-shadow: 0 12px 30px rgba(0,0,0,.12); }
-.admin-login-logo img { display: block; width: 180px; height: auto; }
+.admin-login-logo { width: min(240px, 100%); overflow: hidden; border-radius: 5px; background: #0b241c; }
+.admin-login-logo img { display: block; width: 100%; height: auto; }
 .admin-login-copy { margin: auto 0; max-width: 650px; padding: 70px 0; }
 .admin-login-kicker { color: var(--admin-lime); text-transform: uppercase; letter-spacing: .16em; font-size: .72rem; font-weight: 800; }
 .admin-login-copy h1 { margin: 22px 0 25px; font-family: var(--font-display), sans-serif; font-size: clamp(3.4rem, 6.3vw, 6.3rem); line-height: .92; letter-spacing: -.065em; font-weight: 600; }
@@ -56,11 +56,8 @@
 .admin-app-shell { min-height: 100svh; }
 .admin-sidebar { position: fixed; z-index: 40; inset: 0 auto 0 0; width: 272px; background: var(--admin-green); color: #fff; }
 .admin-sidebar-inner { height: 100%; display: flex; flex-direction: column; padding: 30px 19px 20px; overflow-y: auto; }
-.admin-brand { display: flex; align-items: center; gap: 12px; padding: 0 10px 29px; border-bottom: 1px solid rgba(255,255,255,.1); }
-.admin-brand-mark { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 11px; background: var(--admin-lime); color: var(--admin-green); }
-.admin-brand span:last-child { display: grid; gap: 1px; }
-.admin-brand strong { font-family: var(--font-display), sans-serif; font-size: 1.04rem; letter-spacing: -.02em; }
-.admin-brand small { color: rgba(255,255,255,.72); text-transform: uppercase; letter-spacing: .11em; font-size: .55rem; font-weight: 800; }
+.admin-brand { display: block; padding: 0 0 22px; border-bottom: 1px solid rgba(255,255,255,.1); overflow: hidden; border-radius: 0; }
+.admin-brand img { display: block; width: 100%; height: auto; border-radius: 6px; }
 .admin-nav { display: grid; gap: 5px; padding-top: 29px; }
 .admin-nav-label { padding: 0 13px 10px; color: rgba(255,255,255,.68); text-transform: uppercase; letter-spacing: .14em; font-size: .58rem; font-weight: 800; }
 .admin-nav a { position: relative; display: flex; align-items: center; gap: 12px; min-height: 48px; padding: 0 14px; color: rgba(255,255,255,.68); border-radius: 7px; font-size: .82rem; font-weight: 700; transition: .18s ease; }
@@ -299,7 +296,7 @@
 
 /* Invoice */
 .admin-invoice { width:min(940px,100%); margin:0 auto; padding:clamp(30px,5vw,62px); background:#fff; border:1px solid var(--admin-line); box-shadow:var(--admin-shadow); }
-.admin-invoice-header { display:flex; justify-content:space-between; align-items:flex-start; gap:30px; padding-bottom:28px; border-bottom:3px solid var(--admin-green); }.admin-invoice-header img { width:185px; height:auto; }.admin-invoice-header > div { min-width:0; display:grid; justify-items:end; gap:5px; text-align:right; }.admin-invoice-header span { color:var(--admin-muted); text-transform:uppercase; letter-spacing:.12em; font-size:.6rem; font-weight:800; }.admin-invoice-header strong { max-width:100%; overflow-wrap:anywhere; font-family:ui-monospace,monospace; font-size:1rem; }.admin-invoice-header small { color:var(--admin-muted); font-size:.62rem; }
+.admin-invoice-header { display:flex; justify-content:space-between; align-items:flex-start; gap:30px; padding-bottom:28px; border-bottom:3px solid var(--admin-green); }.admin-invoice-header img { width:min(260px,100%); height:auto; }.admin-invoice-header > div { min-width:0; display:grid; justify-items:end; gap:5px; text-align:right; }.admin-invoice-header span { color:var(--admin-muted); text-transform:uppercase; letter-spacing:.12em; font-size:.6rem; font-weight:800; }.admin-invoice-header strong { max-width:100%; overflow-wrap:anywhere; font-family:ui-monospace,monospace; font-size:1rem; }.admin-invoice-header small { color:var(--admin-muted); font-size:.62rem; }
 .admin-invoice-route { display:grid; grid-template-columns:1fr 40px 1fr; align-items:center; gap:15px; margin:27px 0; padding:20px; background:var(--admin-green); color:#fff; }.admin-invoice-route > span { color:var(--admin-lime); text-align:center; font-size:1.4rem; }.admin-invoice-route > div { display:grid; gap:5px; }.admin-invoice-route > div:last-child { text-align:right; }.admin-invoice-route small { color:rgba(255,255,255,.72); text-transform:uppercase; letter-spacing:.1em; font-size:.55rem; }.admin-invoice-route strong { font-size:.8rem; }
 .admin-invoice-parties { display:grid; grid-template-columns:repeat(2,1fr); gap:30px; padding-bottom:25px; border-bottom:1px solid var(--admin-line); }.admin-invoice-parties > div:last-child { border-left:1px solid var(--admin-line); padding-left:30px; }.admin-invoice-parties small { color:var(--admin-green-2); text-transform:uppercase; letter-spacing:.1em; font-size:.56rem; font-weight:850; }.admin-invoice-parties h2 { margin:8px 0 7px; font-size:.85rem; }.admin-invoice-parties p { margin:4px 0; color:var(--admin-muted); white-space:pre-line; font-size:.65rem; line-height:1.55; }
 .admin-invoice-details, .admin-invoice-charges, .admin-invoice-events { margin-top:28px; }.admin-invoice h2 { margin:0 0 14px; font-family:var(--font-display),sans-serif; font-size:1.15rem; }
