@@ -41,9 +41,11 @@ export function StatusBadge({ status, delivered = false }: { status: string; del
     ? "success"
     : normalized.includes("cancel") || normalized.includes("fail") || normalized === "unpaid"
       ? "danger"
-      : normalized.includes("transit") || normalized.includes("route")
-        ? "info"
-        : "neutral";
+      : normalized === "partial"
+        ? "warning"
+        : normalized.includes("transit") || normalized.includes("route") || normalized === "refunded"
+          ? "info"
+          : "neutral";
   return <span className={`admin-badge admin-badge--${tone}`}><span />{status}</span>;
 }
 

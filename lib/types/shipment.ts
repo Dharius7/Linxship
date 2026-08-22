@@ -136,25 +136,17 @@ export const publicShipmentMessageSchema = z.object({
   created_at: timestampSchema,
 }).strict();
 
-/** The complete curated JSON payload returned by the `track_shipment` RPC. */
+/**
+ * The complete curated JSON payload returned by the `track_shipment` RPC.
+ * A tracking event's payment-required amount is independent of the
+ * shipment's general `show_billing` flag: it is present exactly when that
+ * event's `requires_payment` is true (enforced in `publicTrackingEventSchema`).
+ */
 export const publicTrackingResultSchema = z.object({
   shipment: publicTrackingShipmentSchema,
   events: z.array(publicTrackingEventSchema).max(250),
   messages: z.array(publicShipmentMessageSchema).max(100),
-}).strict().superRefine((result, context) => {
-  result.events.forEach((event, index) => {
-    const billingVisible = result.shipment.show_billing;
-    if (billingVisible === (event.billing_amount === null)) {
-      context.addIssue({
-        code: "custom",
-        path: ["events", index, "billing_amount"],
-        message: billingVisible
-          ? "Visible billing must include an event amount."
-          : "Hidden billing cannot expose an event amount.",
-      });
-    }
-  });
-});
+}).strict();
 
 export type PublicTrackingShipment = z.infer<typeof publicTrackingShipmentSchema>;
 export type PublicTrackingEvent = z.infer<typeof publicTrackingEventSchema>;

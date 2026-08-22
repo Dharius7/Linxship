@@ -713,7 +713,7 @@ begin
         'event_time', event.event_time,
         'requires_payment', event.requires_payment,
         'billing_amount', case
-          when tracked_shipment.show_billing then event.billing_amount
+          when event.requires_payment then event.billing_amount
           else null
         end,
         'created_at', event.created_at
