@@ -936,8 +936,9 @@
   .track-result-hero h1 { font-size: clamp(1.9rem, 8.4vw, 2.7rem); }
   .track-result-hero > div:first-child > p:last-child { font-size: 0.92rem; }
   .track-status strong { font-size: 1.12rem; }
-  .track-summary > div { gap: 10px; padding: 12px 16px; }
-  .track-summary dt { margin-bottom: 3px; font-size: 0.66rem; }
+  .track-summary > div { gap: 8px; padding: 8px 14px; }
+  .track-summary svg { width: 18px; height: 18px; }
+  .track-summary dt { margin-bottom: 2px; font-size: 0.66rem; }
   .track-summary dd { font-size: 0.88rem; }
   .track-section-heading h2 { font-size: 1.32rem; }
   .track-messages .public-eyebrow { font-size: .88rem; }
