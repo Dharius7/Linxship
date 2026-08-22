@@ -309,17 +309,17 @@
 .invoice-parties { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin-bottom:24px; }
 .invoice-party { min-width:0; padding:18px 20px; border:1px solid var(--admin-line); border-left:3px solid var(--admin-green); background:#f8faf7; }
 .invoice-party--to { border-left-color:var(--admin-green-2); }
-.invoice-party__label { display:block; margin-bottom:8px; color:var(--admin-green-2); text-transform:uppercase; letter-spacing:.12em; font-size:.58rem; font-weight:850; }
-.invoice-party h2 { margin:0 0 6px; max-width:100%; overflow-wrap:anywhere; font-size:.92rem; }
-.invoice-party p { margin:2px 0; max-width:100%; overflow-wrap:anywhere; color:var(--admin-muted); white-space:pre-line; font-size:.68rem; line-height:1.55; }
+.invoice-party__label { display:block; margin-bottom:8px; color:var(--admin-green-2); text-transform:uppercase; letter-spacing:.12em; font-size:.6rem; font-weight:850; }
+.invoice-party h2 { margin:0 0 7px; max-width:100%; overflow-wrap:anywhere; font-size:1rem; }
+.invoice-party p { margin:3px 0; max-width:100%; overflow-wrap:anywhere; color:#3f4b45; white-space:pre-line; font-size:.76rem; line-height:1.6; }
 .invoice-party__contact { color:var(--admin-ink); font-weight:650; }
 
 .invoice-route { display:grid; grid-template-columns:1fr 52px 1fr; align-items:center; gap:16px; margin-bottom:24px; padding:22px 26px; background:var(--admin-green); color:#fff; }
 .invoice-route > div { min-width:0; display:grid; gap:4px; }
 .invoice-route > div:last-child { text-align:right; }
-.invoice-route small { color:rgba(255,255,255,.65); text-transform:uppercase; letter-spacing:.1em; font-size:.56rem; font-weight:800; }
-.invoice-route strong { max-width:100%; overflow-wrap:anywhere; font-family:var(--font-display),sans-serif; font-size:1.05rem; }
-.invoice-route span { color:var(--admin-lime); font-size:.64rem; font-weight:700; }
+.invoice-route small { color:rgba(255,255,255,.8); text-transform:uppercase; letter-spacing:.1em; font-size:.58rem; font-weight:800; }
+.invoice-route strong { max-width:100%; overflow-wrap:anywhere; font-family:var(--font-display),sans-serif; font-size:1.14rem; }
+.invoice-route span { color:var(--admin-lime); font-size:.7rem; font-weight:700; }
 .invoice-route__arrow { display:grid; place-items:center; width:40px; height:40px; margin:0 auto; border-radius:50%; background:rgba(255,255,255,.14); color:var(--admin-lime); }
 .invoice-route__arrow svg { width:19px; height:19px; }
 
@@ -413,7 +413,7 @@
   .admin-status-list article { grid-template-columns:38px minmax(0,1fr) auto; padding:14px; }.admin-status-list article form { grid-column:2; }.admin-terminal-pill { grid-column:3; grid-row:1; }
   .admin-contact-list article { grid-template-columns:38px minmax(0,1fr); padding:17px 14px; }.admin-contact-actions { grid-column:2; flex-wrap:wrap; }.admin-contact-copy time { width:100%; margin-left:0; }
   .admin-responsive-table, .admin-responsive-table tbody, .admin-responsive-table tr, .admin-responsive-table td { display:block; width:100%; }.admin-responsive-table thead { display:none; }.admin-responsive-table tr { padding:13px 15px; border-top:1px solid var(--admin-line); }.admin-responsive-table tr:first-child { border-top:0; }.admin-responsive-table td { display:grid; grid-template-columns:minmax(90px,.38fr) minmax(0,1fr); align-items:start; gap:12px; padding:7px 0; border:0; text-align:left; }.admin-responsive-table td::before { content:attr(data-label); color:var(--admin-muted); text-transform:uppercase; letter-spacing:.08em; font-size:.54rem; font-weight:850; }.admin-responsive-table .admin-row-actions { justify-content:flex-start; }.admin-table-wrap { overflow:visible; }
-  .admin-invoice { padding:28px 22px; }.invoice-head { align-items:flex-start; flex-direction:column; }.invoice-head__meta { justify-items:start; text-align:left; }.invoice-parties { grid-template-columns:1fr; }.invoice-route { grid-template-columns:1fr; text-align:left; }.invoice-route > div:last-child { text-align:left; }.invoice-route__arrow { transform:rotate(90deg); }.invoice-panel dl { grid-template-columns:1fr; }.invoice-panel dl div, .invoice-panel dl div:nth-child(odd), .invoice-panel dl div:nth-last-child(-n+2) { border:0; border-bottom:1px solid var(--admin-line); }.invoice-panel dl div:last-child { border:0; }.invoice-total { flex-direction:column; align-items:flex-start; }
+  .admin-invoice { padding:28px 22px; }.invoice-head { align-items:flex-start; flex-direction:column; }.invoice-head__meta { justify-items:start; text-align:left; }.invoice-panel dl { grid-template-columns:1fr; }.invoice-panel dl div, .invoice-panel dl div:nth-child(odd), .invoice-panel dl div:nth-last-child(-n+2) { border:0; border-bottom:1px solid var(--admin-line); }.invoice-panel dl div:last-child { border:0; }.invoice-total { flex-direction:column; align-items:flex-start; }
 }
 
 @media (max-width: 520px) {
@@ -427,7 +427,7 @@
   .admin-event-row { grid-template-columns:1fr; gap:6px; }.admin-event-time { text-align:left; display:flex; gap:7px; }.admin-event-line { display:none; }.admin-event-row .admin-row-actions { grid-column:auto; }
   .admin-status-list article { grid-template-columns:35px minmax(0,1fr); }.admin-terminal-pill { grid-column:2; grid-row:auto; }.admin-status-list article form { grid-column:2; }
   .admin-contact-list article { grid-template-columns:34px minmax(0,1fr); }.admin-contact-actions .admin-button { min-width:0; }
-  .admin-invoice { margin:0 -5px; width:calc(100% + 10px); padding:24px 15px; }.invoice-panel dl div { grid-template-columns:100px 1fr; }.invoice-history { overflow-x:auto; }
+  .admin-invoice { margin:0 -5px; width:calc(100% + 10px); padding:24px 15px; }.invoice-parties { grid-template-columns:1fr; }.invoice-route { grid-template-columns:1fr; text-align:left; }.invoice-route > div:last-child { text-align:left; }.invoice-route__arrow { margin:0; transform:rotate(90deg); }.invoice-panel dl div { grid-template-columns:100px 1fr; }.invoice-history { overflow-x:auto; }
   .admin-dialog-backdrop { align-items:end; padding:0; }.admin-dialog { width:100%; padding:27px 20px calc(24px + env(safe-area-inset-bottom)); border-radius:18px 18px 0 0; }.admin-dialog-actions { display:grid; grid-template-columns:1fr 1fr; }
 }
 
