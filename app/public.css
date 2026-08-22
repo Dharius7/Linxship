@@ -708,7 +708,7 @@
 .track-summary { display: grid; grid-template-columns: repeat(4, 1fr); margin-bottom: 24px; border: 1px solid var(--public-line); border-top: 0; background: var(--public-white); }
 .track-summary > div { min-width: 0; display: grid; grid-template-columns: 34px 1fr; gap: 12px; align-items: center; padding: 22px 24px; }
 .track-summary > div:not(:last-child) { border-right: 1px solid var(--public-line); }
-.track-summary svg { color: var(--public-forest-mid); }
+.track-summary svg { width: 22px; height: 22px; color: var(--public-forest-mid); }
 .track-summary dl { min-width: 0; margin: 0; }
 .track-summary dt { margin-bottom: 6px; color: #66736d; font-size: .59rem; font-weight: 850; letter-spacing: .09em; text-transform: uppercase; }
 .track-summary dd { margin: 0; overflow-wrap: anywhere; font-size: .74rem; font-weight: 800; }
@@ -936,8 +936,8 @@
   .track-result-hero h1 { font-size: clamp(1.9rem, 8.4vw, 2.7rem); }
   .track-result-hero > div:first-child > p:last-child { font-size: 0.92rem; }
   .track-status strong { font-size: 1.12rem; }
-  .track-summary > div { padding: 18px 16px; }
-  .track-summary dt { font-size: 0.66rem; }
+  .track-summary > div { gap: 10px; padding: 12px 16px; }
+  .track-summary dt { margin-bottom: 3px; font-size: 0.66rem; }
   .track-summary dd { font-size: 0.88rem; }
   .track-section-heading h2 { font-size: 1.32rem; }
   .track-messages .public-eyebrow { font-size: .88rem; }
