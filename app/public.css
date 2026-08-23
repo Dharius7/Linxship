@@ -702,7 +702,7 @@
 .track-result-hero > div:first-child > p:last-child { margin: 17px 0 0; color: rgba(255,255,255,.65); font-size: .82rem; }
 .track-status { min-width: 250px; padding: 24px 26px; border: 1px solid rgba(255,255,255,.18); background: rgba(255,255,255,.06); backdrop-filter: blur(7px); }
 .track-status > span { display: flex; align-items: center; gap: 9px; color: rgba(255,255,255,.55); font-size: .61rem; font-weight: 400; letter-spacing: .12em; text-transform: uppercase; }
-.track-status__pulse { width: 8px; height: 8px; border-radius: 50%; background: var(--public-mint); box-shadow: 0 0 0 5px rgba(211,247,122,.12); }
+.track-status__pulse { width: 8px; height: 8px; border-radius: 50%; background: var(--public-mint); animation: track-live-glow 1.8s ease-out infinite; }
 .track-status strong { display: block; margin-top: 10px; font-family: var(--font-display), sans-serif; font-size: 1.25rem; font-weight: 700; }
 
 .track-summary { display: grid; grid-template-columns: repeat(4, 1fr); margin-bottom: 24px; border: 1px solid var(--public-line); border-top: 0; background: var(--public-white); }
