@@ -92,6 +92,15 @@ export function TrackChat({ trackingNumber }: { trackingNumber: string }) {
     threadRef.current.scrollTop = threadRef.current.scrollHeight;
   }, [open, messages]);
 
+  useEffect(() => {
+    if (!open) return;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [open]);
+
   const unreadCount = !open && messages ? messages.slice(seenCount).filter((message) => message.sender_role === "admin").length : 0;
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
