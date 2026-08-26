@@ -27,6 +27,7 @@ export function TrackChat({ trackingNumber }: { trackingNumber: string }) {
   const [isSending, setIsSending] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const threadRef = useRef<HTMLDivElement>(null);
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
   const openRef = useRef(open);
 
   const endpoint = `/api/track/${encodeURIComponent(trackingNumber)}/chat`;
@@ -112,6 +113,7 @@ export function TrackChat({ trackingNumber }: { trackingNumber: string }) {
       }
       setDraft("");
       await load();
+      textareaRef.current?.focus();
     } catch {
       setError("Message could not be sent. Please try again.");
     } finally {
@@ -152,6 +154,7 @@ export function TrackChat({ trackingNumber }: { trackingNumber: string }) {
             <div className="track-chat-form__row">
               <label htmlFor="chat-message" className="sr-only">Message</label>
               <textarea
+                ref={textareaRef}
                 id="chat-message"
                 name="body"
                 rows={2}
@@ -168,7 +171,12 @@ export function TrackChat({ trackingNumber }: { trackingNumber: string }) {
                 disabled={messages === null && loadFailed}
                 required
               />
-              <button type="submit" disabled={isSending || !draft.trim() || (messages === null && loadFailed)} aria-label="Send message">
+              <button
+                type="submit"
+                onMouseDown={(event) => event.preventDefault()}
+                disabled={isSending || !draft.trim() || (messages === null && loadFailed)}
+                aria-label="Send message"
+              >
                 <Send aria-hidden="true" size={18} />
               </button>
             </div>
