@@ -708,7 +708,7 @@
 .track-summary { display: grid; grid-template-columns: repeat(4, 1fr); margin-bottom: 24px; border: 1px solid var(--public-line); border-top: 0; background: var(--public-white); }
 .track-summary > div { min-width: 0; display: grid; grid-template-columns: 34px 1fr; gap: 12px; align-items: center; padding: 22px 24px; }
 .track-summary > div:not(:last-child) { border-right: 1px solid var(--public-line); }
-.track-summary svg { color: var(--public-forest-mid); }
+.track-summary svg { width: 22px; height: 22px; color: var(--public-forest-mid); }
 .track-summary dl { min-width: 0; margin: 0; }
 .track-summary dt { margin-bottom: 6px; color: #66736d; font-size: .59rem; font-weight: 400; letter-spacing: .09em; text-transform: uppercase; }
 .track-summary dd { margin: 0; overflow-wrap: anywhere; font-size: .74rem; font-weight: 400; }
@@ -720,15 +720,15 @@
 .track-section-heading .public-eyebrow { margin-bottom: 5px; font-size: .59rem; font-weight: 400; }
 .track-section-heading h2 { margin: 0; font-family: var(--font-display), sans-serif; font-size: 1.48rem; line-height: 1.15; letter-spacing: -.045em; font-weight: 700; }
 
-.track-messages { margin-bottom: 24px; }
-.track-messages .track-section-heading { gap: 12px; padding-bottom: 16px; margin-bottom: 18px; }
-.track-messages .track-section-heading__icon { width: 36px; height: 36px; flex: 0 0 36px; }
-.track-messages .track-section-heading__icon svg { width: 16px; }
+.track-messages { padding: clamp(14px, 2vw, 20px); margin-bottom: 18px; }
+.track-messages .track-section-heading { gap: 10px; padding-bottom: 8px; margin-bottom: 10px; }
+.track-messages .track-section-heading__icon { width: 28px; height: 28px; flex: 0 0 28px; }
+.track-messages .track-section-heading__icon svg { width: 14px; }
 .track-messages .public-eyebrow { margin: 0; font-size: .68rem; font-weight: 700; }
-.track-messages__list { display: grid; gap: 12px; }
-.track-messages__list article { position: relative; padding: 18px 20px 18px 23px; border-left: 3px solid var(--public-mint); background: var(--public-cream); }
-.track-messages__list p { margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; color: #8d342b; font-weight: 400; font-size: .82rem; line-height: 1.66; }
-.track-messages__list time { display: block; margin-top: 9px; color: #68756f; font-size: .62rem; }
+.track-messages__list { display: grid; gap: 6px; }
+.track-messages__list article { position: relative; padding: 9px 14px 9px 16px; border-left: 3px solid var(--public-mint); background: var(--public-cream); }
+.track-messages__list p { margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; color: #8d342b; font-weight: 400; font-size: .82rem; line-height: 1.42; }
+.track-messages__list time { display: block; margin-top: 5px; color: #68756f; font-size: .62rem; }
 
 .track-chat-widget { position: fixed; z-index: 500; right: 20px; bottom: 64px; }
 .track-chat-widget__toggle { position: relative; width: 58px; height: 58px; display: grid; place-items: center; border: 0; border-radius: 50%; background: var(--public-forest); color: var(--public-white); box-shadow: 0 14px 34px rgba(7, 28, 21, 0.32); cursor: pointer; transition: transform 0.2s ease, background 0.2s ease; }
@@ -905,13 +905,13 @@
   .home-contact__grid { grid-template-columns: 1fr; }
   .home-contact__intro { max-width: 620px; }
   .public-footer__top { grid-template-columns: minmax(0, 1fr) minmax(0, 0.8fr) minmax(0, 1fr); gap: 28px; }
-  .track-result-hero { align-items: flex-start; flex-direction: column; gap: 30px; }
+  .track-result-hero { align-items: flex-start; flex-direction: column; gap: 20px; }
   .track-status { width: min(380px, 100%); }
   .track-summary { grid-template-columns: repeat(2, 1fr); }
   .track-summary > div:nth-child(2) { border-right: 0; }
   .track-summary > div:nth-child(-n + 2) { border-bottom: 1px solid var(--public-line); }
   .track-summary { margin-bottom: 16px; }
-  .track-messages { margin-bottom: 16px; }
+  .track-messages { margin-bottom: 14px; }
   .track-layout { grid-template-columns: 1fr; gap: 16px; }
   .track-layout__main { display: contents; }
   .track-layout [aria-labelledby="route-title"] { order: 1; }
@@ -973,13 +973,19 @@
   .public-footer__cta { grid-column: 1 / -1; width: max-content; max-width: 100%; }
   .public-footer__bottom { align-items: center; flex-direction: column; justify-content: center; text-align: center; }
   .track-main { padding-top: 28px; }
-  .track-result-hero { min-height: 0; padding: 32px 22px; }
+  .track-result-hero { min-height: 0; padding: 22px 18px; }
+  .track-result-hero .public-eyebrow { margin-bottom: 9px; }
   .track-result-hero h1 { font-size: clamp(1.9rem, 8.4vw, 2.7rem); }
-  .track-result-hero > div:first-child > p:last-child { font-size: 0.92rem; }
-  .track-status strong { font-size: 1.12rem; }
-  .track-summary > div { padding: 18px 16px; }
-  .track-summary dt { font-size: 0.66rem; }
+  .track-result-hero > div:first-child > p:last-child { margin-top: 10px; font-size: 0.92rem; }
+  .track-status { padding: 16px 18px; }
+  .track-status strong { margin-top: 6px; font-size: 1.12rem; }
+  .track-summary > div { gap: 8px; padding: 8px 14px; }
+  .track-summary svg { width: 18px; height: 18px; }
+  .track-summary dt { margin-bottom: 2px; font-size: 0.66rem; }
   .track-summary dd { font-size: 0.88rem; }
+  .track-section-heading { gap: 12px; padding-bottom: 14px; margin-bottom: 16px; }
+  .track-section-heading__icon { width: 36px; height: 36px; flex-basis: 36px; }
+  .track-section-heading__icon svg { width: 17px; }
   .track-section-heading h2 { font-size: 1.32rem; }
   .track-messages .public-eyebrow { font-size: .72rem; }
   .track-messages__list p { font-size: 0.92rem; }
@@ -1004,7 +1010,8 @@
   .track-route h3 { font-size: 1.28rem; }
   .track-route dt { font-size: 0.66rem; }
   .track-route dd { font-size: 0.9rem; }
-  .track-package-grid dt { font-size: 0.66rem; }
+  .track-package-grid > div { padding: 12px; }
+  .track-package-grid dt { margin-bottom: 4px; font-size: 0.66rem; }
   .track-package-grid dd { font-size: 0.9rem; }
   .track-billing dt { font-size: 0.64rem; }
   .track-billing dd { font-size: 0.88rem; }
@@ -1013,14 +1020,8 @@
   .track-timeline time { font-size: 0.7rem; }
   .track-state h1 { font-size: clamp(1.85rem, 8vw, 2.6rem); }
   .track-state > p:not(.public-eyebrow) { font-size: 0.98rem; }
-  .track-route { grid-template-columns: 1fr; gap: 28px; }
-  .track-route > article:last-child { text-align: left; }
-  .track-route > article:last-child .track-route__marker,
-  .track-route > article:last-child dt { justify-content: flex-start; }
-  .track-route__line { width: 20px; height: 50px; flex-direction: column; margin: -10px 0 -4px 0; }
-  .track-route__line::before,
-  .track-route__line span { border-top: 0; border-left: 1px dashed #9ba6a1; }
-  .track-route__line svg { margin: 6px 0; transform: rotate(90deg); }
+  .track-route { grid-template-columns: minmax(0, 1fr) 34px minmax(0, 1fr); gap: 8px; }
+  .track-route__line svg { width: 15px; margin: 0 2px; }
   .track-billing dl { grid-template-columns: 1fr; }
   .track-billing dl > div:not(:last-child) { border-right: 0; border-bottom: 1px solid rgba(23,76,59,.13); }
   .track-loading-heading { padding: 34px 26px; }
@@ -1057,12 +1058,18 @@
   .track-package-grid { grid-template-columns: 1fr; }
   .track-package-grid > div { border-right: 0 !important; border-bottom: 1px solid var(--public-line); }
   .track-package-grid > div:last-child { border-bottom: 0; }
+  .track-route { grid-template-columns: minmax(0, 1fr) 24px minmax(0, 1fr); gap: 6px; }
+  .track-route__line svg { width: 12px; margin: 0; }
+  .track-route h3 { margin: 12px 0 16px; font-size: 1.12rem; }
   .track-state { padding: 28px 16px; }
-  .track-result-hero { padding: 26px 16px; }
-  .track-status { min-width: 0; padding: 18px; }
-  .track-panel { padding: 22px 16px; }
-  .track-section-heading { align-items: flex-start; }
-  .track-section-heading__icon { width: 41px; height: 41px; flex-basis: 41px; }
+  .track-result-hero { padding: 18px 14px; }
+  .track-status { min-width: 0; padding: 13px 14px; }
+  .track-panel { padding: 18px 14px; }
+  .track-section-heading { align-items: flex-start; padding-bottom: 12px; margin-bottom: 14px; }
+  .track-section-heading__icon { width: 32px; height: 32px; flex-basis: 32px; }
+  .track-section-heading__icon svg { width: 15px; }
+  .track-package-grid > div { padding: 10px; }
+  .track-package-grid dt { margin-bottom: 3px; }
   .track-again { padding: 26px 16px; }
   .track-loading-summary { grid-template-columns: 1fr; }
 }
