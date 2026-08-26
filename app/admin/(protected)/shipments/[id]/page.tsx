@@ -13,10 +13,12 @@ export const metadata = { title: "Shipment details" };
 export default async function ShipmentDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
   const supabase = await createClient();
-  const [{ data: shipment }, { data: events }, { data: messages }] = await Promise.all([
+  const [{ data: shipment }, { data: events }, { data: messages }, { data: chatPreview }, { count: unreadChatCount }] = await Promise.all([
     supabase.from("shipments").select("*").eq("id", id).maybeSingle(),
     supabase.from("tracking_events").select("id,status,location,event_time,requires_payment,billing_amount").eq("shipment_id", id).order("event_time", { ascending: false }).limit(5),
     supabase.from("shipment_messages").select("id,message,created_at").eq("shipment_id", id).order("created_at", { ascending: false }).limit(3),
+    supabase.from("shipment_chat_messages").select("id,sender_role,body,created_at").eq("shipment_id", id).order("created_at", { ascending: false }).limit(3),
+    supabase.from("shipment_chat_messages").select("id", { count: "exact", head: true }).eq("shipment_id", id).eq("sender_role", "customer").eq("is_read_by_admin", false),
   ]);
   if (!shipment) notFound();
   const signed = shipment.cargo_image_path
@@ -65,6 +67,10 @@ export default async function ShipmentDetailPage({ params }: { params: Promise<{
           <section className="admin-panel admin-panel--flush">
             <div className="admin-panel-heading admin-panel-heading--padded"><div><span className="admin-eyebrow">Customer updates</span><h2>Messages</h2></div><Link href={`/admin/shipments/${id}/messages`} className="admin-text-link">Manage <AdminIcon name="arrow" /></Link></div>
             {!messages?.length ? <div className="admin-inline-empty">No customer messages yet.</div> : <div className="admin-message-preview">{messages.map((message) => <article key={message.id}><p>{message.message}</p><time>{formatDate(message.created_at, true)}</time></article>)}</div>}
+          </section>
+          <section className="admin-panel admin-panel--flush">
+            <div className="admin-panel-heading admin-panel-heading--padded"><div><span className="admin-eyebrow">Live conversation</span><h2>Chat</h2></div><div className="admin-row-actions">{!!unreadChatCount && <span className="admin-count-pill admin-count-pill--unread">{unreadChatCount} new</span>}<Link href={`/admin/shipments/${id}/chat`} className="admin-text-link">Open chat <AdminIcon name="arrow" /></Link></div></div>
+            {!chatPreview?.length ? <div className="admin-inline-empty">No chat messages yet.</div> : <div className="admin-message-preview">{chatPreview.map((entry) => <article key={entry.id}><p>{entry.sender_role === "admin" ? "You: " : `${shipment.recipient_name}: `}{entry.body}</p><time>{formatDate(entry.created_at, true)}</time></article>)}</div>}
           </section>
           <section className="admin-panel admin-danger-zone"><h2>Danger zone</h2><p>Deleting this shipment also removes its tracking events, customer messages, and cargo image.</p><form action={deleteShipmentAction.bind(null, id)}><ConfirmButton message={`Permanently delete ${shipment.tracking_number}?`} className="admin-button admin-button--danger admin-button--wide">Delete shipment</ConfirmButton></form></section>
         </aside>

@@ -8,6 +8,7 @@ export type ShipmentUpdate = TablesUpdate<"shipments">;
 export type ShipmentStatus = Tables<"shipment_statuses">;
 export type TrackingEvent = Tables<"tracking_events">;
 export type ShipmentMessage = Tables<"shipment_messages">;
+export type ShipmentChatMessage = Tables<"shipment_chat_messages">;
 export type ContactMessage = Tables<"contact_messages">;
 export type ActivityLog = Tables<"activity_logs">;
 
@@ -161,4 +162,33 @@ export function parsePublicTrackingResult(value: unknown): PublicTrackingResult 
 
 export function isPublicTrackingResult(value: unknown): value is PublicTrackingResult {
   return publicTrackingResultSchema.safeParse(value).success;
+}
+
+/**
+ * The live-chat payload never carries sender_display_name or created_by -
+ * those columns aren't selected by the RPCs, so an admin's real identity
+ * can't leak to the public side even if the rendering logic had a bug.
+ */
+export const publicChatMessageSchema = z.object({
+  id: z.uuid(),
+  sender_role: z.enum(["customer", "admin"]),
+  body: z.string().min(1).max(2000),
+  created_at: timestampSchema,
+}).strict();
+
+export const publicChatMessagesResultSchema = z.object({
+  messages: z.array(publicChatMessageSchema).max(200),
+}).strict();
+
+export type PublicChatMessage = z.infer<typeof publicChatMessageSchema>;
+export type PublicChatMessagesResult = z.infer<typeof publicChatMessagesResultSchema>;
+
+export function parsePublicChatMessagesResult(value: unknown): PublicChatMessagesResult | null {
+  const parsed = publicChatMessagesResultSchema.safeParse(value);
+  return parsed.success ? parsed.data : null;
+}
+
+export function parsePublicChatMessage(value: unknown): PublicChatMessage | null {
+  const parsed = publicChatMessageSchema.safeParse(value);
+  return parsed.success ? parsed.data : null;
 }

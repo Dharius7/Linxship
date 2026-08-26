@@ -92,6 +92,10 @@ export const shipmentMessageSchema = z.object({
   message: z.string().trim().min(2, "Message is required.").max(4000),
 });
 
+export const chatMessageSchema = z.object({
+  body: z.string().trim().min(1, "Enter a message.").max(2000, "Keep messages under 2,000 characters."),
+});
+
 export const statusSchema = z.object({
   name: z.string().trim().min(2, "Status name is required.").max(64),
   sort_order: z.coerce.number().int().min(0).max(10_000),

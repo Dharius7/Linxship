@@ -5,6 +5,7 @@ import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { getSupabaseSetupMessage, isSupabaseConfigured } from "@/lib/supabase/config";
 import {
+  chatMessageSchema,
   loginSchema,
   shipmentMessageSchema,
   shipmentSchema,
@@ -510,6 +511,40 @@ export async function deleteShipmentMessageAction(
   revalidatePath(`/admin/shipments/${shipmentId}`);
   revalidatePath(`/admin/shipments/${shipmentId}/messages`);
   redirect(noticePath(`/admin/shipments/${shipmentId}/messages`, "success", "Message deleted."));
+}
+
+export async function sendAdminChatMessageAction(
+  shipmentId: string,
+  _previousState: AdminActionState,
+  formData: FormData,
+): Promise<AdminActionState> {
+  const actor = await requireActor();
+  if (!actor) return resultError("Your session has expired. Sign in again.");
+  const result = chatMessageSchema.safeParse({ body: formData.get("body") });
+  if (!result.success) return resultError("Enter a message.", schemaErrors(result.error.issues));
+  const { error } = await actor.supabase.from("shipment_chat_messages").insert({
+    id: crypto.randomUUID(),
+    shipment_id: shipmentId,
+    sender_role: "admin",
+    body: result.data.body,
+  });
+  if (error) return resultError("Message could not be sent.");
+  revalidatePath(`/admin/shipments/${shipmentId}`);
+  revalidatePath(`/admin/shipments/${shipmentId}/chat`);
+  return { status: "success", message: "Message sent." };
+}
+
+export async function markShipmentChatReadAction(shipmentId: string): Promise<void> {
+  const actor = await requireActor();
+  if (!actor) return;
+  await actor.supabase
+    .from("shipment_chat_messages")
+    .update({ is_read_by_admin: true })
+    .eq("shipment_id", shipmentId)
+    .eq("sender_role", "customer")
+    .eq("is_read_by_admin", false);
+  revalidatePath(`/admin/shipments/${shipmentId}`);
+  revalidatePath("/admin/shipments");
 }
 
 export async function createStatusAction(

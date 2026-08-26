@@ -107,6 +107,7 @@
 .admin-panel-heading--padded { margin: 0; padding: 23px 25px 19px; border-bottom: 1px solid var(--admin-line); }
 .admin-panel-heading h2 { margin: 4px 0 0; font-family: var(--font-display), sans-serif; font-size: 1.25rem; letter-spacing: -.035em; }
 .admin-count-pill { display: inline-flex; align-items: center; min-height: 28px; padding: 0 10px; border-radius: 999px; background: var(--admin-soft); color: var(--admin-muted); font-size: .65rem; font-weight: 800; }
+.admin-count-pill--unread { background: var(--admin-lime); color: var(--admin-green); }
 .admin-form-stack { min-width: 0; display: grid; gap: 18px; }
 .admin-form-grid { min-width: 0; display: grid; gap: 17px; }
 .admin-form-grid--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -294,6 +295,15 @@
 .admin-contact-copy { min-width:0; }.admin-contact-copy > div { display:flex; align-items:center; flex-wrap:wrap; gap:8px; }.admin-contact-copy h2 { margin:0; font-size:.76rem; }.admin-contact-copy > div > span { padding:3px 6px; border-radius:99px; background:#dff2bd; color:#436b12; font-size:.52rem; font-weight:850; }.admin-contact-copy time { margin-left:auto; color:var(--admin-muted); font-size:.56rem; }.admin-contact-copy > a { display:block; width:max-content; max-width:100%; margin-top:3px; overflow:hidden; color:var(--admin-green-2); text-overflow:ellipsis; font-size:.6rem; }.admin-contact-copy > p { margin:11px 0 0; color:#3c4e47; white-space:pre-line; font-size:.67rem; line-height:1.65; }
 .admin-contact-actions { display:flex; align-items:center; gap:6px; }
 .admin-action-pill { display:inline-flex; padding:5px 8px; border-radius:99px; background:var(--admin-soft); color:var(--admin-green-2); text-transform:capitalize; font-size:.57rem; font-weight:800; }
+
+.admin-chat-panel { padding: 24px; }
+.admin-chat-thread { display: grid; align-content: start; gap: 12px; max-height: 480px; margin-bottom: 20px; padding-right: 4px; overflow-y: auto; }
+.admin-chat-bubble { width: fit-content; max-width: min(520px, 82%); padding: 10px 14px; border-radius: 12px; overflow-wrap: anywhere; }
+.admin-chat-bubble.is-customer { justify-self: start; border-bottom-left-radius: 3px; background: var(--admin-soft); color: var(--admin-ink); }
+.admin-chat-bubble.is-admin { justify-self: end; border-bottom-right-radius: 3px; background: var(--admin-green); color: #fff; }
+.admin-chat-bubble__meta { display: block; margin-bottom: 4px; font-size: .58rem; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; opacity: .68; }
+.admin-chat-bubble p { margin: 0; font-size: .78rem; line-height: 1.55; white-space: pre-wrap; }
+.admin-chat-form { border-top: 1px solid var(--admin-line); padding-top: 18px; }
 
 /* Invoice */
 .admin-invoice { width:min(940px,100%); margin:0 auto; padding:clamp(30px,5vw,62px); background:#fff; border:1px solid var(--admin-line); box-shadow:var(--admin-shadow); }

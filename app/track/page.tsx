@@ -15,6 +15,7 @@ import {
   Info,
   Mail,
   MapPin,
+  MessageCircle,
   PackageCheck,
   PackageOpen,
   Phone,
@@ -25,6 +26,7 @@ import {
 } from "lucide-react";
 import { SiteFooter } from "@/components/public/site-footer";
 import { SiteHeader } from "@/components/public/site-header";
+import { TrackChat } from "@/components/public/track-chat";
 import { TrackingForm } from "@/components/public/tracking-form";
 import { createServiceClient } from "@/lib/supabase/service";
 import { createShipmentImageSignedUrl } from "@/lib/supabase/storage";
@@ -333,6 +335,14 @@ function ShipmentDetails({ result, cargoImageUrl }: { result: PublicTrackingResu
           </section>
         </aside>
       </div>
+
+      <section className="track-panel track-chat-panel" aria-labelledby="chat-title">
+        <div className="track-section-heading">
+          <div className="track-section-heading__icon"><MessageCircle aria-hidden="true" /></div>
+          <div><p className="public-eyebrow">Need help?</p><h2 id="chat-title">Chat with our team</h2></div>
+        </div>
+        <TrackChat trackingNumber={shipment.tracking_number} />
+      </section>
 
       <section className="track-again" aria-labelledby="track-again-title">
         <div><p className="public-eyebrow public-eyebrow--lime">Another delivery?</p><h2 id="track-again-title">Track another shipment.</h2></div>

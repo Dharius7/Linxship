@@ -103,6 +103,47 @@ export type Database = {
         };
         Relationships: [];
       };
+      shipment_chat_messages: {
+        Row: {
+          body: string;
+          created_at: string;
+          created_by: string | null;
+          id: string;
+          is_read_by_admin: boolean;
+          sender_display_name: string | null;
+          sender_role: string;
+          shipment_id: string;
+        };
+        Insert: {
+          body: string;
+          created_at?: string;
+          created_by?: string | null;
+          id?: string;
+          is_read_by_admin?: boolean;
+          sender_display_name?: string | null;
+          sender_role: string;
+          shipment_id: string;
+        };
+        Update: {
+          body?: string;
+          created_at?: string;
+          created_by?: string | null;
+          id?: string;
+          is_read_by_admin?: boolean;
+          sender_display_name?: string | null;
+          sender_role?: string;
+          shipment_id?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "shipment_chat_messages_shipment_id_fkey";
+            columns: ["shipment_id"];
+            isOneToOne: false;
+            referencedRelation: "shipments";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
       shipment_messages: {
         Row: {
           created_at: string;
@@ -346,9 +387,17 @@ export type Database = {
       [_ in never]: never;
     };
     Functions: {
+      get_shipment_chat_messages: {
+        Args: { p_tracking_number: string };
+        Returns: Json;
+      };
       is_active_admin: {
         Args: Record<PropertyKey, never>;
         Returns: boolean;
+      };
+      send_shipment_chat_message: {
+        Args: { p_body: string; p_tracking_number: string };
+        Returns: Json;
       };
       submit_contact_message: {
         Args: {
