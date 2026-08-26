@@ -15,7 +15,6 @@ import {
   Info,
   Mail,
   MapPin,
-  MessageCircle,
   PackageCheck,
   PackageOpen,
   Phone,
@@ -336,18 +335,12 @@ function ShipmentDetails({ result, cargoImageUrl }: { result: PublicTrackingResu
         </aside>
       </div>
 
-      <section className="track-panel track-chat-panel" aria-labelledby="chat-title">
-        <div className="track-section-heading">
-          <div className="track-section-heading__icon"><MessageCircle aria-hidden="true" /></div>
-          <div><p className="public-eyebrow">Need help?</p><h2 id="chat-title">Chat with our team</h2></div>
-        </div>
-        <TrackChat trackingNumber={shipment.tracking_number} />
-      </section>
-
       <section className="track-again" aria-labelledby="track-again-title">
         <div><p className="public-eyebrow public-eyebrow--lime">Another delivery?</p><h2 id="track-again-title">Track another shipment.</h2></div>
         <TrackingForm compact id="another-tracking-number" />
       </section>
+
+      <TrackChat trackingNumber={shipment.tracking_number} />
     </>
   );
 }

@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { MessageCircle, Send } from "lucide-react";
+import { MessageCircle, Send, X } from "lucide-react";
 
 type ChatMessage = {
   id: string;
@@ -19,14 +19,21 @@ function formatTime(value: string) {
 }
 
 export function TrackChat({ trackingNumber }: { trackingNumber: string }) {
+  const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[] | null>(null);
+  const [seenCount, setSeenCount] = useState(0);
   const [loadFailed, setLoadFailed] = useState(false);
   const [draft, setDraft] = useState("");
   const [isSending, setIsSending] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const threadRef = useRef<HTMLDivElement>(null);
+  const openRef = useRef(open);
 
   const endpoint = `/api/track/${encodeURIComponent(trackingNumber)}/chat`;
+
+  useEffect(() => {
+    openRef.current = open;
+  }, [open]);
 
   const load = useCallback(async () => {
     try {
@@ -39,6 +46,9 @@ export function TrackChat({ trackingNumber }: { trackingNumber: string }) {
       if (Array.isArray(data?.messages)) {
         setMessages(data.messages);
         setLoadFailed(false);
+        // While the widget is open, every message that arrives is
+        // immediately visible, so keep the "seen" mark advancing with it.
+        if (openRef.current) setSeenCount(data.messages.length);
       } else {
         setLoadFailed(true);
       }
@@ -47,9 +57,18 @@ export function TrackChat({ trackingNumber }: { trackingNumber: string }) {
     }
   }, [endpoint]);
 
+  function toggleOpen() {
+    setOpen((value) => {
+      const next = !value;
+      if (next) setSeenCount(messages?.length ?? 0);
+      return next;
+    });
+  }
+
   useEffect(() => {
     // Fetch-on-mount + interval polling syncs the thread with the server
-    // (an external system), which is exactly what effects are for.
+    // (an external system), which is exactly what effects are for. Keeps
+    // running while the widget is closed so the unread badge stays live.
     // eslint-disable-next-line react-hooks/set-state-in-effect
     load();
     const interval = setInterval(() => {
@@ -68,9 +87,11 @@ export function TrackChat({ trackingNumber }: { trackingNumber: string }) {
   }, [load]);
 
   useEffect(() => {
-    if (!threadRef.current) return;
+    if (!open || !threadRef.current) return;
     threadRef.current.scrollTop = threadRef.current.scrollHeight;
-  }, [messages]);
+  }, [open, messages]);
+
+  const unreadCount = !open && messages ? messages.slice(seenCount).filter((message) => message.sender_role === "admin").length : 0;
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -99,52 +120,66 @@ export function TrackChat({ trackingNumber }: { trackingNumber: string }) {
   }
 
   return (
-    <div className="track-chat">
-      <div className="track-chat-thread" ref={threadRef} aria-live="polite">
-        {messages === null && loadFailed ? (
-          <p className="track-chat-empty">Chat is temporarily unavailable. Please try again shortly.</p>
-        ) : messages === null ? (
-          <p className="track-chat-empty">Loading conversation…</p>
-        ) : messages.length === 0 ? (
-          <p className="track-chat-empty"><MessageCircle aria-hidden="true" size={18} /> Send a message and our team will reply here.</p>
-        ) : (
-          messages.map((message) => (
-            <article key={message.id} className={`track-chat-bubble ${message.sender_role === "admin" ? "is-support" : "is-mine"}`}>
-              <span className="track-chat-bubble__meta">
-                {message.sender_role === "admin" ? "LinxShip Support" : "You"} · <time dateTime={message.created_at}>{formatTime(message.created_at)}</time>
-              </span>
-              <p>{message.body}</p>
-            </article>
-          ))
-        )}
-      </div>
+    <div className="track-chat-widget">
+      {open && (
+        <div className="track-chat-panel" role="dialog" aria-label="Chat with our team">
+          <header className="track-chat-panel__header">
+            <span><MessageCircle aria-hidden="true" size={17} /> Chat with our team</span>
+            <button type="button" onClick={() => setOpen(false)} aria-label="Close chat"><X aria-hidden="true" size={18} /></button>
+          </header>
 
-      <form className="track-chat-form" onSubmit={handleSubmit}>
-        {error && <p className="track-chat-error">{error}</p>}
-        <div className="track-chat-form__row">
-          <label htmlFor="chat-message" className="sr-only">Message</label>
-          <textarea
-            id="chat-message"
-            name="body"
-            rows={2}
-            maxLength={2000}
-            placeholder={messages === null && loadFailed ? "Chat is temporarily unavailable…" : "Type a message…"}
-            value={draft}
-            onChange={(event) => setDraft(event.target.value)}
-            onKeyDown={(event) => {
-              if (event.key === "Enter" && !event.shiftKey) {
-                event.preventDefault();
-                event.currentTarget.form?.requestSubmit();
-              }
-            }}
-            disabled={messages === null && loadFailed}
-            required
-          />
-          <button type="submit" disabled={isSending || !draft.trim() || (messages === null && loadFailed)} aria-label="Send message">
-            <Send aria-hidden="true" size={18} />
-          </button>
+          <div className="track-chat-thread" ref={threadRef} aria-live="polite">
+            {messages === null && loadFailed ? (
+              <p className="track-chat-empty">Chat is temporarily unavailable. Please try again shortly.</p>
+            ) : messages === null ? (
+              <p className="track-chat-empty">Loading conversation…</p>
+            ) : messages.length === 0 ? (
+              <p className="track-chat-empty"><MessageCircle aria-hidden="true" size={18} /> Send a message and our team will reply here.</p>
+            ) : (
+              messages.map((message) => (
+                <article key={message.id} className={`track-chat-bubble ${message.sender_role === "admin" ? "is-support" : "is-mine"}`}>
+                  <span className="track-chat-bubble__meta">
+                    {message.sender_role === "admin" ? "LinxShip Support" : "You"} · <time dateTime={message.created_at}>{formatTime(message.created_at)}</time>
+                  </span>
+                  <p>{message.body}</p>
+                </article>
+              ))
+            )}
+          </div>
+
+          <form className="track-chat-form" onSubmit={handleSubmit}>
+            {error && <p className="track-chat-error">{error}</p>}
+            <div className="track-chat-form__row">
+              <label htmlFor="chat-message" className="sr-only">Message</label>
+              <textarea
+                id="chat-message"
+                name="body"
+                rows={2}
+                maxLength={2000}
+                placeholder={messages === null && loadFailed ? "Chat is temporarily unavailable…" : "Type a message…"}
+                value={draft}
+                onChange={(event) => setDraft(event.target.value)}
+                onKeyDown={(event) => {
+                  if (event.key === "Enter" && !event.shiftKey) {
+                    event.preventDefault();
+                    event.currentTarget.form?.requestSubmit();
+                  }
+                }}
+                disabled={messages === null && loadFailed}
+                required
+              />
+              <button type="submit" disabled={isSending || !draft.trim() || (messages === null && loadFailed)} aria-label="Send message">
+                <Send aria-hidden="true" size={18} />
+              </button>
+            </div>
+          </form>
         </div>
-      </form>
+      )}
+
+      <button type="button" className="track-chat-widget__toggle" onClick={toggleOpen} aria-label={open ? "Close chat" : "Chat with our team"}>
+        {open ? <X aria-hidden="true" size={24} /> : <MessageCircle aria-hidden="true" size={24} />}
+        {unreadCount > 0 && <span className="track-chat-widget__badge">{unreadCount}</span>}
+      </button>
     </div>
   );
 }
