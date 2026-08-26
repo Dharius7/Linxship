@@ -741,7 +741,7 @@
 .track-chat-bubble p { margin: 0; font-size: .84rem; line-height: 1.55; white-space: pre-wrap; }
 .track-chat-form { border-top: 1px solid var(--public-line); padding-top: 14px; }
 .track-chat-form__row { display: flex; align-items: flex-end; gap: 10px; }
-.track-chat-form textarea { flex: 1; min-width: 0; padding: 10px 12px; border: 1px solid var(--public-line); background: var(--public-white); color: var(--public-ink); font: inherit; font-size: .84rem; resize: none; transition: border 0.2s ease, box-shadow 0.2s ease; }
+.track-chat-form textarea { flex: 1; min-width: 0; padding: 10px 12px; border: 1px solid var(--public-line); background: var(--public-white); color: var(--public-ink); font: inherit; font-size: 16px; resize: none; transition: border 0.2s ease, box-shadow 0.2s ease; }
 .track-chat-form textarea:focus { outline: 0; border-color: var(--public-forest-mid); box-shadow: 0 0 0 4px rgba(23, 76, 59, 0.09); }
 .track-chat-form button { width: 44px; height: 44px; flex: 0 0 auto; display: grid; place-items: center; border: 0; border-radius: 3px; background: var(--public-forest); color: var(--public-white); cursor: pointer; transition: background 0.2s ease; }
 .track-chat-form button:hover:not(:disabled) { background: var(--public-forest-mid); }
