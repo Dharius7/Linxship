@@ -736,19 +736,19 @@
 .track-chat-widget__badge { position: absolute; top: -4px; right: -4px; min-width: 20px; height: 20px; display: grid; place-items: center; padding: 0 5px; border-radius: 999px; border: 2px solid var(--public-paper); background: #b0392f; color: #fff; font-size: .62rem; font-weight: 850; }
 
 .track-chat-panel { position: absolute; z-index: 2; right: 0; bottom: 74px; width: min(370px, calc(100vw - 40px)); max-height: min(560px, calc(100vh - 120px)); display: flex; flex-direction: column; overflow: hidden; border-radius: 10px; background: var(--public-white); box-shadow: 0 24px 65px rgba(10, 34, 26, 0.28); }
-.track-chat-panel__header { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 16px 18px; background: var(--public-forest); color: var(--public-white); }
+.track-chat-panel__header { flex: 0 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 16px 18px; background: var(--public-forest); color: var(--public-white); }
 .track-chat-panel__header span { display: flex; align-items: center; gap: 8px; font-family: var(--font-display), sans-serif; font-size: 0.95rem; font-weight: 700; }
-.track-chat-panel__header button { display: grid; place-items: center; width: 28px; height: 28px; border: 0; border-radius: 50%; background: rgba(255, 255, 255, 0.12); color: var(--public-white); cursor: pointer; transition: background 0.2s ease; }
+.track-chat-panel__header button { display: grid; flex: 0 0 auto; place-items: center; width: 28px; height: 28px; border: 0; border-radius: 50%; background: rgba(255, 255, 255, 0.12); color: var(--public-white); cursor: pointer; transition: background 0.2s ease; }
 .track-chat-panel__header button:hover { background: rgba(255, 255, 255, 0.22); }
 
-.track-chat-thread { flex: 1; display: grid; align-content: start; gap: 12px; min-height: 220px; padding: 16px; overflow-y: auto; }
+.track-chat-thread { flex: 1; display: grid; align-content: start; gap: 12px; min-height: 220px; padding: 16px; overflow-y: auto; overscroll-behavior: contain; }
 .track-chat-empty { display: flex; align-items: center; gap: 8px; margin: 20px 0; color: #68756f; font-size: .82rem; }
 .track-chat-bubble { width: fit-content; max-width: 84%; padding: 10px 14px; border-radius: 12px; overflow-wrap: anywhere; }
 .track-chat-bubble.is-support { justify-self: start; border-bottom-left-radius: 3px; background: var(--public-cream); color: var(--public-ink); }
 .track-chat-bubble.is-mine { justify-self: end; border-bottom-right-radius: 3px; background: var(--public-forest); color: var(--public-white); }
 .track-chat-bubble__meta { display: block; margin-bottom: 4px; font-size: .6rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; opacity: .65; }
 .track-chat-bubble p { margin: 0; font-size: .84rem; line-height: 1.55; white-space: pre-wrap; }
-.track-chat-form { border-top: 1px solid var(--public-line); padding: 14px 16px; }
+.track-chat-form { flex: 0 0 auto; border-top: 1px solid var(--public-line); padding: 14px 16px; background: var(--public-white); }
 .track-chat-form__row { display: flex; align-items: flex-end; gap: 10px; }
 .track-chat-form textarea { flex: 1; min-width: 0; padding: 10px 12px; border: 1px solid var(--public-line); background: var(--public-white); color: var(--public-ink); font: inherit; font-size: 16px; resize: none; transition: border 0.2s ease, box-shadow 0.2s ease; }
 .track-chat-form textarea:focus { outline: 0; border-color: var(--public-forest-mid); box-shadow: 0 0 0 4px rgba(23, 76, 59, 0.09); }
@@ -1004,7 +1004,8 @@
   }
   .track-chat-thread { min-height: 0; }
   .track-chat-form { padding-bottom: calc(14px + env(safe-area-inset-bottom)); }
-  .track-chat-panel__header { padding-top: calc(16px + env(safe-area-inset-top)); }
+  .track-chat-panel__header { padding: calc(16px + env(safe-area-inset-top)) 14px 16px 18px; }
+  .track-chat-panel__header button { width: 38px; height: 38px; }
   .track-chat-bubble { max-width: 90%; }
   .track-route h3 { font-size: 1.28rem; }
   .track-route dt { font-size: 0.66rem; }
