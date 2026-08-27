@@ -730,7 +730,7 @@
 .track-messages__list p { margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; color: #8d342b; font-weight: 400; font-size: .82rem; line-height: 1.42; }
 .track-messages__list time { display: block; margin-top: 5px; color: #68756f; font-size: .62rem; }
 
-.track-chat-widget { position: fixed; z-index: 500; right: 20px; bottom: 84px; }
+.track-chat-widget { position: fixed; z-index: 500; right: 20px; bottom: 104px; }
 .track-chat-widget__toggle { position: relative; width: 58px; height: 58px; display: grid; place-items: center; border: 0; border-radius: 50%; background: var(--public-forest); color: var(--public-white); box-shadow: 0 14px 34px rgba(7, 28, 21, 0.32); cursor: pointer; transition: transform 0.2s ease, background 0.2s ease; }
 .track-chat-widget__toggle:hover { background: var(--public-forest-mid); transform: translateY(-2px); }
 .track-chat-widget__badge { position: absolute; top: -4px; right: -4px; min-width: 20px; height: 20px; display: grid; place-items: center; padding: 0 5px; border-radius: 999px; border: 2px solid var(--public-paper); background: #b0392f; color: #fff; font-size: .62rem; font-weight: 850; }
@@ -989,7 +989,7 @@
   .track-section-heading h2 { font-size: 1.32rem; }
   .track-messages .public-eyebrow { font-size: .72rem; }
   .track-messages__list p { font-size: 0.92rem; }
-  .track-chat-widget { right: 14px; bottom: 66px; }
+  .track-chat-widget { right: 14px; bottom: 82px; }
   .track-chat-widget__toggle { width: 52px; height: 52px; }
   .track-chat-panel {
     position: fixed;
